@@ -12,16 +12,16 @@ You must clone the repo on your local machine and go to the folder.
 
 From there you have to install grunt and the project dependencies:
 
-´´´
+```
 npm install -g grunt
 npm install
-´´´
+```
 
 Finally you can start the project on localhost port 5000 with the following command:
 
-´´´
+```
 grunt dev
-´´´
+```
 
 ## Project structure
 
