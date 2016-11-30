@@ -51,20 +51,22 @@ https://tweb-github-explorer.herokuapp.com/
 
 ### html template
 
-The html template we're using is Future Imperfect from [adminlte](https://almsaeedstudio.com/).
+The html template we're using is Alma Seed Studio from [adminlte](https://almsaeedstudio.com/).
 
-## GitHub Explorer features
+## Poll web app features
 
-### Feature 1 : most starred repos
+### Feature 1 : Home page
 
-List the most starred repositories on GitHub. The data is fetched when the server starts and is stored in the MongoDB database.
+...
 
-### Feature 2 : repository commiters
+### Feature 2 : Poll creation
 
-See every user who commited to the repository of your choice and the percentages of their contribution.
+...
 
-See an historic of every request which were executed on this feature
+### Feature 3 : Account management
 
-### Feature 3 : user's repositories
+...
 
-List all the repositories of the user of your choice
+### Feature 4 : Poll usage
+
+...
