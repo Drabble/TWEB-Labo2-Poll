@@ -4,6 +4,10 @@ This repository contains the result of the second lab session for Antoine Drabbl
 
 The project is aimed at developing and deploying an AngularJS 1 web application for making polls. The users are first welcomed by a landing page hosted on github pages from where the users can access the web app.
 
+![Preview 1](preview1.png)
+
+![Preview 2](preview2.png)
+
 ## Get started
 
 To setup the development environment, you must install Node.js, setup a MongoDB database or use the mongoDB docker image provided inside the repo.
