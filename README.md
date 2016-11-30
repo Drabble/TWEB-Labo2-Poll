@@ -1,29 +1,48 @@
-# TWEB Labo 1 : Mining Data in Github
+# TWEB Labo 2 : Poll app
 
-This repository contains the result of the fist lab session for Antoine Drabble and Guillaume Serneels in the TWEB Course 2016-2017 at HEIG-VD. 
+This repository contains the result of the second lab session for Antoine Drabble and Guillaume Serneels in the TWEB Course 2016-2017 at HEIG-VD. 
 
-The project is aimed at developing and deploying an AngularJS 1 web application allowing users to explore usage statistics of github.com. The users are first welcomed by a landing page and can click on the "START EXPLORING NOW" link to access the webapp.
+The project is aimed at developing and deploying an AngularJS 1 web application for making polls. The users are first welcomed by a landing page hosted on github pages from where the users can access the web app.
+
+## Get started
+
+To setup the development environment, you must install Node.js, setup a MongoDB database or use the mongoDB docker image provided inside the repo.
+
+You must clone the repo on your local machine and go to the folder.
+
+From there you have to install grunt and the project dependencies:
+
+´´´
+npm install -g grunt
+npm install
+´´´
+
+Finally you can start the project on localhost port 5000 with the following command:
+
+´´´
+grunt dev
+´´´
 
 ## Project structure
 
 ### branch gh-pages : Landing Page
 
-The **gh-pages** branch of this repository contains the landing page of the github explorer web app.
+The **gh-pages** branch of this repository contains the landing page of the poll web app.
 
 The landing page is made available using GitHub Pages an can be accessed at the following URL:
 
 https://gsern1.github.io/TWEB-Labo1-GithubExplorer/
 
 
-### branch master : Github explorer web application
+### branch master : Poll web application
 
 The **master branch** of this repository contains the source code of the github explorer web app as deployed on [heroku](www.heroku.com).
 
 To develop this project we have first created an [AngularJS](https://angularjs.org) application using the [angm](https://github.com/newaeonweb/generator-angm) generator. The application's navigation relies on the [UI-Router](https://github.com/angular-ui/ui-router) framework and the charts display is made possible by the [angular-chart.js](https://jtblin.github.io/angular-chart.js/) (based on [Chart.js](http://www.chartjs.org/)) module. 
 
-The aplication's database has been created with [MongoDB](https://mongodb.github.io/node-mongodb-native/). It is used to store the list of the most starred repos on github when the app is launched and to log every query executed on the feature 2 of the app.
+The aplication's database has been created with [Mongoose](http://mongoosejs.com/).
 
-This AngularJS application was then incorporated inside a simple Node.js app using Expess 4, and deployed to heroku, along with the [mLab MongoDB](https://elements.heroku.com/addons/mongolab) module.
+This AngularJS application was then incorporated inside a simple Node.js app using Expess 4, Passport.js and deployed to heroku, along with the [mLab MongoDB](https://elements.heroku.com/addons/mongolab) module.
 
 Here's the adress of the heroku deployement:
 
@@ -32,8 +51,7 @@ https://tweb-github-explorer.herokuapp.com/
 
 ### html template
 
-The html template we're using is Future Imperfect from [html5up](https://html5up.net/future-imperfect).
-
+The html template we're using is Future Imperfect from [adminlte](https://almsaeedstudio.com/).
 
 ## GitHub Explorer features
 
