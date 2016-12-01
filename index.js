@@ -9,9 +9,9 @@
  * @author Guillaume Serneels
  * 
  */
-var express = require('express');
-var app = express();
-var request = require('request-promise');
+var express     = require('express');
+var app         = express();
+var request     = require('request-promise');
 var bodyParser  = require('body-parser');
 var morgan      = require('morgan');
 var mongoose    = require('mongoose');
@@ -22,6 +22,12 @@ var Room        = require('./models/room'); // get the mongoose model
 var Question    = require('./models/question'); // get the mongoose model
 var port        = process.env.PORT || 5000;
 var jwt         = require('jwt-simple');
+var http        = require('http');
+var io          = require('socket.io');
+var server      = http.createServer(app);
+var io          = io.listen(server);
+
+
 
 // get our request parameters
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -192,11 +198,14 @@ getToken = function (headers) {
     return null;
   }
 };
+
+var roomService = require('./controllers/roomservice.js');
+roomservice.setup(io);
  
 // connect the api routes under /api/*
 app.use('/api', apiRoutes);
 
 // Start the Express app
-app.listen(app.get('port'), function () {
+server.listen(app.get('port'), function () {
   console.log('Node app is running on port', app.get('port'));
 });
