@@ -15,12 +15,12 @@ var QuestionSchema = new Schema({
         required: true
     },
     plus: {
-        type: Int,
+        type: Number,
         required: true,
         default: 0
     },
     minus: {
-        type: Int,
+        type: Number,
         required: true,
         default: 0
     },

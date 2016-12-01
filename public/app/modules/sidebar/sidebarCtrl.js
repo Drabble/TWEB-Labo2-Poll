@@ -63,8 +63,9 @@
 			$scope.logged = $cookies.get("token");
 		});
 
-		
-		
+		$scope.joinRoom = function() {
+			$state.go("room", {id: $scope.roomId});
+		}
 	}
 
 })();

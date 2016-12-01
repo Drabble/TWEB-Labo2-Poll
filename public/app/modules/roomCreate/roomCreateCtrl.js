@@ -40,7 +40,7 @@
 						console.log('room success !', res.data);
 						if(res.data.success){
 							$rootScope.$broadcast('newRoom', res.data.room);
-							$state.go("room");
+							$state.go("room", {"id": res.data.room});
 						} else{
 							$scope.error = res.data.msg;
 						}

@@ -23,7 +23,10 @@
         <!-- /.box-header -->
         <!-- form start -->
         <form class="form-horizontal" ng-submit="submit()">
-          <div class="box-body">
+          <div class="box-body"> 
+            <div ng-show="success" class="alert alert-success">
+              <strong>Success!</strong> {{success}}
+            </div>
             <div ng-show="error" class="alert alert-danger">
               <strong>Error!</strong> {{error}}
             </div>

@@ -39,19 +39,23 @@
 					function(res) {
 						console.log('register success !', res.data);
 						if(res.data.success){
-							$state.go('login'); 
+							$scope.success = "Register successful";
+							$scope.error = null;
 						} else{
 							$scope.error = res.data.msg;
+							$scope.success = null;
 						}
 					},
 					function(err) {
 						console.log('register error...', err);
 						$scope.error = "Internal server error";
+							$scope.success = null;
 					}
 				);
 			} else{
 				console.log("Empty username or password");
 				$scope.error = "Empty username or password";
+				$scope.success = null;
 			}
 		};
 	}
