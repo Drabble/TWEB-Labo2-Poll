@@ -138,16 +138,16 @@ apiRoutes.post('/rooms', passport.authenticate('jwt', { session: false}), functi
           if (!req.body.name || !req.body.temporary) {
             res.json({success: false, msg: 'Please pass name and temporary.'});
           } else {
-            var newRoom = new Room({
+            var newRoom = new Room({  
               name: req.body.name,
               temporary: req.body.temporary
             });
-            // save the user
-            
+
+            // save the room
             user.rooms.push(newRoom);
             user.save(function(err) {
               if (err) {
-                return res.json({success: false, msg: 'Username already exists.'});
+                return res.json({success: false, msg: 'Room already exists.'});
               }
               res.json({success: true, msg: 'Successfully created new room.', room: newRoom.id});
             });
@@ -172,9 +172,7 @@ apiRoutes.get('/rooms', passport.authenticate('jwt', { session: false}), functio
         if (!user) {
           return res.status(403).send({success: false, msg: 'Authentication failed. User not found.'});
         } else {
-          res.json({success: true, rooms: user.rooms.aggregate([
-            { $group: { "_id": "name" } }
-          ])});
+          res.json({success: true, rooms: user.rooms});
         }
     });
   } else {

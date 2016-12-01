@@ -47,7 +47,7 @@
 					},
 					function(err) {
 						console.log('login error...', err);
-						$scope.error = err;
+						$scope.error = "Internal server error";
 					}
 				);
 			} else{

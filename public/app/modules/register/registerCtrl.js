@@ -46,10 +46,12 @@
 					},
 					function(err) {
 						console.log('register error...', err);
+						$scope.error = "Internal server error";
 					}
 				);
 			} else{
 				console.log("Empty username or password");
+				$scope.error = "Empty username or password";
 			}
 		};
 	}

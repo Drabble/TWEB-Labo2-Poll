@@ -25,35 +25,37 @@
 	* the REST API url /most_starred_repos
 	*/
 	function Sidebar($scope, $http, $cookies, $state) {
-		/*if($cookies.get("token")){
-			$state.go('profile'); 
-		}
-		$scope.submit = function() {
-			if ($scope.username && $scope.password) {
-				$http({
-					method: 'POST',
-					url: '/api/authenticate', 
-					data: { name: $scope.username, password: $scope.password },
-					headers: { 'Content-Type': 'application/json' }
-				}).then(
-					function(res) {
-						console.log('login success !', res.data);
-						if(res.data.success){
-							$cookies.put("token", res.data.token);
-							$state.go('profile'); 
-						} else{
-							$scope.error = res.data.msg;
-						}
-					},
-					function(err) {
-						console.log('login error...', err);
-						$scope.error = err;
+		// Watch for logout/login
+		$scope.logged = $cookies.get("token");
+		$scope.$watch(function() { return $cookies.get("token"); }, function(newValue) {
+			$scope.logged = $cookies.get("token");
+		});
+
+		// Room list
+		if($scope.logged){
+			$http({
+				method: 'GET',
+				url: '/api/rooms', 
+				headers: { 'Content-Type': 'application/json',
+						   'Authorization': $scope.logged 
+				}
+			}).then(
+				function(res) {
+					console.log('rooms success !', res.data);
+					if(res.data.success){
+						$scope.rooms = res.data.rooms;
+					} else{
+						$scope.error = res.data.msg;
 					}
-				);
-			} else{
-				$scope.error = "Empty username or password";
-			}
-		};*/
+				},
+				function(err) {
+					console.log('rooms error...', err);
+				}
+			);
+		}
+		$scope.$on('newRoom', function (event, value) {
+			$scope.rooms.push(value);
+		});
 	}
 
 })();
