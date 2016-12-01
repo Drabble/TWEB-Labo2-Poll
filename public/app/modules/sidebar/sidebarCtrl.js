@@ -25,37 +25,46 @@
 	* the REST API url /most_starred_repos
 	*/
 	function Sidebar($scope, $http, $cookies, $state) {
+		$scope.rooms = [];
+		$scope.$watch('logged', function() {
+			// Room list
+			if($scope.logged){
+				$http({
+					method: 'GET',
+					url: '/api/rooms', 
+					headers: { 'Content-Type': 'application/json',
+							'Authorization': $scope.logged 
+					}
+				}).then(
+					function(res) {
+						console.log('rooms success !', res.data);
+						if(res.data.success){
+							$scope.rooms = res.data.rooms;
+						} else{
+							$scope.error = res.data.msg;
+						}
+					},
+					function(err) {
+						console.log('rooms error...', err);
+					}
+				);
+			} else{
+				$scope.rooms = [];
+			}
+		});
+
+		$scope.$on('newRoom', function (event, value) {
+			$scope.rooms.push(value);
+		});
+
 		// Watch for logout/login
 		$scope.logged = $cookies.get("token");
 		$scope.$watch(function() { return $cookies.get("token"); }, function(newValue) {
 			$scope.logged = $cookies.get("token");
 		});
 
-		// Room list
-		if($scope.logged){
-			$http({
-				method: 'GET',
-				url: '/api/rooms', 
-				headers: { 'Content-Type': 'application/json',
-						   'Authorization': $scope.logged 
-				}
-			}).then(
-				function(res) {
-					console.log('rooms success !', res.data);
-					if(res.data.success){
-						$scope.rooms = res.data.rooms;
-					} else{
-						$scope.error = res.data.msg;
-					}
-				},
-				function(err) {
-					console.log('rooms error...', err);
-				}
-			);
-		}
-		$scope.$on('newRoom', function (event, value) {
-			$scope.rooms.push(value);
-		});
+		
+		
 	}
 
 })();
