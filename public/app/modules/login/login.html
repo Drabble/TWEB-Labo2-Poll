@@ -2,11 +2,11 @@
 <section class="content-header">
   <h1>
 	TWEB Poll app
-	<small>register</small>
+	<small>login</small>
   </h1>
   <ol class="breadcrumb">
 	<li><a ui-sref="home"><i class="fa fa-dashboard"></i> Home</a></li>
-	<li class="active">Register</li>
+	<li class="active">Login</li>
   </ol>
 </section>
 
@@ -22,20 +22,23 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form class="form-horizontal">
+        <form class="form-horizontal" ng-submit="submit()">
           <div class="box-body">
+            <div ng-show="error" class="alert alert-danger">
+              <strong>Error!</strong> {{error}}
+            </div>
             <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+              <label for="inputUsername" class="col-sm-2 control-label">Username</label>
 
               <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                <input type="username" ng-model="username" class="form-control" id="inpuUsername" placeholder="Username">
               </div>
             </div>
             <div class="form-group">
               <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
 
               <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                <input type="password" ng-model="password" class="form-control" id="inputPassword" placeholder="Password">
               </div>
             </div>
           </div>

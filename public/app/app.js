@@ -27,7 +27,9 @@
 		'roomCreate',
 		'login',
 		'register',
-		'profile'
+		'profile',
+		'sidebar',
+		'header'
 	]);
 
 })();

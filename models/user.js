@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcryptjs = require('bcryptjs');
+var Room = require('./room');
  
 // set up a mongoose model
 var UserSchema = new Schema({
@@ -12,7 +13,10 @@ var UserSchema = new Schema({
   password: {
         type: String,
         required: true
-    }
+    },
+  rooms:[
+        {type: Schema.Types.ObjectId, ref: 'Room'}
+    ]
 });
  
 UserSchema.pre('save', function (next) {

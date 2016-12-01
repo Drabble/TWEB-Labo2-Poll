@@ -14,44 +14,46 @@
 	*/
 
 	angular
-		.module('register')
-		.controller('RegisterCtrl', Register);
+		.module('sidebar')
+		.controller('SidebarCtrl', Sidebar);
 
-	Register.$inject = ['$scope', '$http', '$cookies', '$state'];
+	Sidebar.$inject = ['$scope', '$http', '$cookies', '$state'];
 
 	/*
 	* @summary instantiates the Gefeature1 module
 	* Fetches the list of the most starred repos from the database using 
 	* the REST API url /most_starred_repos
 	*/
-	function Register($scope, $http, $cookies, $state) {
-		if($cookies.get("token")){
+	function Sidebar($scope, $http, $cookies, $state) {
+		/*if($cookies.get("token")){
 			$state.go('profile'); 
 		}
 		$scope.submit = function() {
 			if ($scope.username && $scope.password) {
 				$http({
 					method: 'POST',
-					url: '/api/signup', 
+					url: '/api/authenticate', 
 					data: { name: $scope.username, password: $scope.password },
 					headers: { 'Content-Type': 'application/json' }
 				}).then(
 					function(res) {
-						console.log('register success !', res.data);
+						console.log('login success !', res.data);
 						if(res.data.success){
-							$state.go('login'); 
+							$cookies.put("token", res.data.token);
+							$state.go('profile'); 
 						} else{
 							$scope.error = res.data.msg;
 						}
 					},
 					function(err) {
-						console.log('register error...', err);
+						console.log('login error...', err);
+						$scope.error = err;
 					}
 				);
 			} else{
-				console.log("Empty username or password");
+				$scope.error = "Empty username or password";
 			}
-		};
+		};*/
 	}
 
 })();

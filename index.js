@@ -18,6 +18,8 @@ var mongoose    = require('mongoose');
 var passport	  = require('passport');
 var config      = require('./config/database'); // get db config file
 var User        = require('./models/user'); // get the mongoose model
+var Room        = require('./models/room'); // get the mongoose model
+var Question    = require('./models/question'); // get the mongoose model
 var port        = process.env.PORT || 5000;
 var jwt         = require('jwt-simple');
 
@@ -99,8 +101,8 @@ apiRoutes.post('/authenticate', function(req, res) {
   });
 });
 
-// route to a restricted info (GET http://localhost:8080/api/memberinfo)
-apiRoutes.get('/memberinfo', passport.authenticate('jwt', { session: false}), function(req, res) {
+// route to a restricted info (GET http://localhost:5000/api/account)
+apiRoutes.get('/account', passport.authenticate('jwt', { session: false}), function(req, res) {
   var token = getToken(req.headers);
   if (token) {
     var decoded = jwt.decode(token, config.secret);
@@ -112,7 +114,67 @@ apiRoutes.get('/memberinfo', passport.authenticate('jwt', { session: false}), fu
         if (!user) {
           return res.status(403).send({success: false, msg: 'Authentication failed. User not found.'});
         } else {
-          res.json({success: true, msg: 'Welcome in the member area ' + user.name + '!'});
+          res.json({success: true, username: user.name});
+        }
+    });
+  } else {
+    return res.status(403).send({success: false, msg: 'No token provided.'});
+  }
+});
+
+// route to a restricted info (GET http://localhost:5000/api/rooms)
+apiRoutes.post('/rooms', passport.authenticate('jwt', { session: false}), function(req, res) {
+  var token = getToken(req.headers);
+  if (token) {
+    var decoded = jwt.decode(token, config.secret);
+    User.findOne({
+      name: decoded.name
+    }, function(err, user) {
+        if (err) throw err;
+ 
+        if (!user) {
+          return res.status(403).send({success: false, msg: 'Authentication failed. User not found.'});
+        } else {
+          if (!req.body.name || !req.body.temporary) {
+            res.json({success: false, msg: 'Please pass name and temporary.'});
+          } else {
+            var newRoom = new Room({
+              name: req.body.name,
+              temporary: req.body.temporary
+            });
+            // save the user
+            
+            user.rooms.push(newRoom);
+            user.save(function(err) {
+              if (err) {
+                return res.json({success: false, msg: 'Username already exists.'});
+              }
+              res.json({success: true, msg: 'Successfully created new room.', room: newRoom.id});
+            });
+          }
+        }
+    });
+  } else {
+    return res.status(403).send({success: false, msg: 'No token provided.'});
+  }
+});
+
+// route to a restricted info (GET http://localhost:5000/api/account)
+apiRoutes.get('/rooms', passport.authenticate('jwt', { session: false}), function(req, res) {
+  var token = getToken(req.headers);
+  if (token) {
+    var decoded = jwt.decode(token, config.secret);
+    User.findOne({
+      name: decoded.name
+    }, function(err, user) {
+        if (err) throw err;
+ 
+        if (!user) {
+          return res.status(403).send({success: false, msg: 'Authentication failed. User not found.'});
+        } else {
+          res.json({success: true, rooms: user.rooms.aggregate([
+            { $group: { "_id": "name" } }
+          ])});
         }
     });
   } else {
