@@ -17,14 +17,15 @@
 		.module('roomCreate')
 		.controller('RoomCreateCtrl', RoomCreate);
 
-	RoomCreate.$inject = ['$scope', '$http', '$cookies', '$state'];
+	RoomCreate.$inject = ['$scope', '$http', '$state', '$cookies', '$rootScope'];
 
 	/*
 	* @summary instantiates the Gefeature1 module
 	* Fetches the list of the most starred repos from the database using 
 	* the REST API url /most_starred_repos
 	*/
-	function RoomCreate($scope, $http, $state, $cookies) {
+	function RoomCreate($scope, $http, $state, $cookies, $rootScope) {
+		$scope.token = $cookies.get("token");
 		$scope.submit = function() {
 			if ($scope.name) {
 				$http({
@@ -32,13 +33,13 @@
 					url: '/api/rooms', 
 					data: { name: $scope.name, temporary: $scope.temporary },
 					headers: { 'Content-Type': 'application/json',
-						       'Authorization': $cookies.get("token")  
+						       'Authorization': $scope.token  
 					}
 				}).then(
 					function(res) {
 						console.log('room success !', res.data);
 						if(res.data.success){
-							$rootScope.$broadcast('newRoom', 'res.data.room');
+							$rootScope.$broadcast('newRoom', res.data.room);
 							$state.go("room");
 						} else{
 							$scope.error = res.data.msg;

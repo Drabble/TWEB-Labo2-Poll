@@ -135,8 +135,8 @@ apiRoutes.post('/rooms', passport.authenticate('jwt', { session: false}), functi
         if (!user) {
           return res.status(403).send({success: false, msg: 'Authentication failed. User not found.'});
         } else {
-          if (!req.body.name || !req.body.temporary) {
-            res.json({success: false, msg: 'Please pass name and temporary.'});
+          if (!req.body.name) {
+            res.json({success: false, msg: 'Please pass name.'});
           } else {
             var newRoom = new Room({  
               name: req.body.name,
