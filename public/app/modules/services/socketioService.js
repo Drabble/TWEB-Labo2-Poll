@@ -15,7 +15,7 @@
     var socketio = angular.module('socketio', []);
 
     socketio.factory('socketio', socketFactory);
-	// Inject your dependencies as .$inject = ['$http', 'someSevide'];
+ 	// Inject your dependencies as .$inject = ['$http', 'someSevide'];
 	// function Name ($http, someSevide) {...}
 
 	socketFactory.$inject = ['$window', '$rootScope'];
@@ -25,7 +25,9 @@
         var services = {
             on: on,
             emit: emit,
-            init: init
+            init: init,
+            join: join,
+            emitTo: emitTo
         }
 
         return services;
@@ -40,6 +42,23 @@
                 var args = arguments;
                 $rootScope.$apply(function() {
                     callback.apply($window.socket, args);
+                });
+            });
+        }
+
+        function join(roomName) {
+            $window.socket.join(roomName);
+        }
+
+        // TODO : UTILISER LE $scope pour la réception des callback
+
+        function emitTo(roomName, eventName, data, callback){
+            $window.socket.to(roomName).emit(eventName, data, function() {
+                var args = arguments;
+                $rootScope.$apply(function() {
+                    if (callback) {
+                        callback.apply($window.socket, args);
+                    }
                 });
             });
         }

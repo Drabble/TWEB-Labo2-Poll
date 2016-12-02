@@ -21,7 +21,7 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form">
+        <form role="form" ng-submit="questionSubmit()">
           <div class="box-body">
             <div class="form-group">
               <label for="exampleInputEmail1">Title</label>
@@ -67,20 +67,20 @@
 
 
           <!-- Social sharing buttons -->
-          <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-down"></i> +1</button>
-          <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> -1</button>
+          <button type="button" ng-click="plusClick()" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-down"></i> +1</button>
+          <button type="button" ng-click="minusClick()" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> -1</button>
           <span class="pull-right text-muted">+42 score - 2 Comments</span>
         </div>
         <!-- /.box-body -->
         <div class="box-footer box-comments">
           <div class="box-comment">
-                    <span class="text-muted pull-right">8:03 PM Today</span>
+              <span class="text-muted pull-right">8:03 PM Today</span>
               It is a long established fact that a reader will be distracted
               by the readable content of a page when looking at its layout.
             <!-- /.comment-text -->
           </div>
           <div class="box-comment">
-                    <span class="text-muted pull-right">1:03 PM Today</span>
+              <span class="text-muted pull-right">1:03 PM Today</span>
               This is a test test... Lorem Ipsum malf fkedo olkr kmvmk dkvvf.
               Lorem Ipsum malf fkedo olkr kmvmk dkvvf Lorem Ipsum malf fkedo olkr kmvmk dkvvf Lorem Ipsum malf fkedo olkr kmvmk dkvvf ?
             <!-- /.comment-text -->
@@ -89,121 +89,7 @@
         </div>
         <!-- /.box-footer -->
         <div class="box-footer">
-          <form action="#" method="post">
-              <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
-          </form>
-        </div>
-        <!-- /.box-footer -->
-      </div>
-      <!-- /.box -->
-    </div>
-    <div class="col-md-6">
-      <!-- Box Comment -->
-      <div class="box box-widget">
-        <div class="box-header with-border">
-          <span class="title"><h4>What is it?</h4></span>
-          <span class="description"><i> 7:30 PM Today</i></span>
-          <!-- /.user-block -->
-          <div class="box-tools">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-          </div>
-          <!-- /.box-tools -->
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <!-- post text -->
-          <p>How do you make it ?</p>
-
-          <p>the coast of the Semantics, a large language ocean.
-            A small river named Duden flows by their place and supplies
-            it with the necessary regelialia. It is a paradisematic
-            country, in which roasted parts of sentences fly into
-            your mouth.</p>
-
-
-          <!-- Social sharing buttons -->
-          <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-down"></i> +1</button>
-          <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> -1</button>
-          <span class="pull-right text-muted">+42 score - 2 Comments</span>
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer box-comments">
-          <div class="box-comment">
-                    <span class="text-muted pull-right">8:03 PM Today</span>
-              It is a long established fact that a reader will be distracted
-              by the readable content of a page when looking at its layout.
-            <!-- /.comment-text -->
-          </div>
-          <div class="box-comment">
-                    <span class="text-muted pull-right">1:03 PM Today</span>
-              This is a test test... Lorem Ipsum malf fkedo olkr kmvmk dkvvf.
-              Lorem Ipsum malf fkedo olkr kmvmk dkvvf Lorem Ipsum malf fkedo olkr kmvmk dkvvf Lorem Ipsum malf fkedo olkr kmvmk dkvvf ?
-            <!-- /.comment-text -->
-          </div>
-          <!-- /.box-comment -->
-        </div>
-        <!-- /.box-footer -->
-        <div class="box-footer">
-          <form action="#" method="post">
-              <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
-          </form>
-        </div>
-        <!-- /.box-footer -->
-      </div>
-      <!-- /.box -->
-    </div>
-    <div class="col-md-6">
-      <!-- Box Comment -->
-      <div class="box box-widget">
-        <div class="box-header with-border">
-          <span class="title"><h4>What is it?</h4></span>
-          <span class="description"><i> 7:30 PM Today</i></span>
-          <!-- /.user-block -->
-          <div class="box-tools">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-          </div>
-          <!-- /.box-tools -->
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <!-- post text -->
-          <p>How do you make it ?</p>
-
-          <p>the coast of the Semantics, a large language ocean.
-            A small river named Duden flows by their place and supplies
-            it with the necessary regelialia. It is a paradisematic
-            country, in which roasted parts of sentences fly into
-            your mouth.</p>
-
-
-          <!-- Social sharing buttons -->
-          <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-down"></i> +1</button>
-          <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> -1</button>
-          <span class="pull-right text-muted">+42 score - 2 Comments</span>
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer box-comments">
-          <div class="box-comment">
-                    <span class="text-muted pull-right">8:03 PM Today</span>
-              It is a long established fact that a reader will be distracted
-              by the readable content of a page when looking at its layout.
-            <!-- /.comment-text -->
-          </div>
-          <div class="box-comment">
-                    <span class="text-muted pull-right">1:03 PM Today</span>
-              This is a test test... Lorem Ipsum malf fkedo olkr kmvmk dkvvf.
-              Lorem Ipsum malf fkedo olkr kmvmk dkvvf Lorem Ipsum malf fkedo olkr kmvmk dkvvf Lorem Ipsum malf fkedo olkr kmvmk dkvvf ?
-            <!-- /.comment-text -->
-          </div>
-          <!-- /.box-comment -->
-        </div>
-        <!-- /.box-footer -->
-        <div class="box-footer">
-          <form action="#" method="post">
+          <form ng-submit="commentSubmit()">
               <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
           </form>
         </div>

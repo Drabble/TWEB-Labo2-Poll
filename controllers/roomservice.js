@@ -16,7 +16,7 @@ function RoomService(){
     }
 
     function retrieveQuestions(){
-
+        
     }
 
     function addQuestion(){
