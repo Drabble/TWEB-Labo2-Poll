@@ -12,6 +12,15 @@
 	 * @author Guillaume Serneels
 	 */
 
-	angular.module('room', []);
+	angular.module('room', [])
+		.run(setupSocketIO);
+
+	function setupSocketIO(socketio, $rootscope){
+		console.log("Set up socket io");
+		console.log(socketio);
+		socketio.init();
+
+		
+	}
 
 })();

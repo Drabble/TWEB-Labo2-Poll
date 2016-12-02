@@ -200,7 +200,7 @@ getToken = function (headers) {
 };
 
 var roomService = require('./controllers/roomservice.js');
-roomservice.setup(io);
+roomService.setup(io);
  
 // connect the api routes under /api/*
 app.use('/api', apiRoutes);

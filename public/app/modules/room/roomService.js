@@ -17,10 +17,14 @@
 	// Inject your dependencies as .$inject = ['$http', 'someSevide'];
 	// function Name ($http, someSevide) {...}
 
-	Room.$inject = ['$http'];
+	Room.$inject = ['$http', 'socketio'];
 
-	function Room($http) {
+	function Room($http, socketio) {
+		socketio.on("welcome", function(msg){
+			console.log(msg);
+		});
 
+		return {};
 	}
 
 })();
