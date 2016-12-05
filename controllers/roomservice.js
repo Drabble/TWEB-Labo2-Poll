@@ -1,11 +1,18 @@
 function RoomService(){
     var socketio;
+    var Room = require('../models/room'); // get the mongoose model
 
     function setup(io){
         socketio = io;
         socketio.on("connection", function(socket){
-            socket.emit("welcome");
-            socketio.emit("new_user");
+            socket.on('joinRoom', function(msg){
+                socket.join(msg.room)
+                io.to('auth').emit('user connection', {"username" : msg.user});
+                Room.find({}, function(err, rooms) {
+                    socket.emit(rooms);
+                });
+            });
+            socket.on('')
         });
 
         // Quand on join une room, on envoie la liste des questions.
