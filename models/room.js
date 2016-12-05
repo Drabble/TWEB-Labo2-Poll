@@ -13,7 +13,7 @@ var RoomSchema = new Schema({
         type: Boolean,
         required: true
     },
-    question:[
+    questions:[
         {type: Schema.Types.ObjectId, ref: 'Question'}
     ]
 });

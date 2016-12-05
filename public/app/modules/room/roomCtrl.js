@@ -26,38 +26,46 @@
 	*/
 	function Room($scope, $http, $stateParams, socketio) {
 		$scope.id = $stateParams.id;
-		socketio.join($scope.id);
-		socketio.on("addQuestion", function(msg){
-			console.log("new question");
+		$scope.questions = [];
+		socketio.emit("joinRoom", {room: $scope.id});
+		socketio.on("listQuestions", function(questions){
+			console.log("new listQuestions");
+			console.log(questions);
+			$scope.questions = questions;
 		});
-		socketio.on("listQuestions", function(msg){
-			console.log("new room");
+		socketio.on("addQuestion", function(question){
+			console.log("new addQuestion");
+			console.log(question);
+			$scope.questions.push(question);
 		});
-		socketio.on("addComment", function(msg){
-			console.log("new room");
+		socketio.on("addComment", function(comment){
+			console.log("new addComment");
+			console.log(comment);
 		});
-		socketio.on("addPlus", function(msg){
-			console.log("new room");
+		socketio.on("addPlus", function(question){
+			console.log("new addPlus");
+			console.log(question);
 		});
-		socketio.on("addMinus", function(msg){
-			console.log("new room");
+		socketio.on("addMinus", function(question){
+			console.log("new addMinus");
+			console.log(question);
 		});
 		$scope.questionSubmit = function(){
 			console.log("create question");
-			socketio.emitTo($scope.id, "addQuestion", {});
-		}
+			socketio.emit("addQuestion", {room: $scope.id, title: $scope.title, question: $scope.question});
+		};
 		$scope.commentSubmit = function(){
 			console.log("create comment");
-			socketio.emitTo($scope.id, "addComment", {});
-		}
+			socketio.emit("addComment", {room: $scope.id});
+		};
 		$scope.plusClick = function(){
 			console.log("plus");
-			socketio.emitTo($scope.id, "addPlus", {});
-		}
+			socketio.emit("addPlus", {room: $scope.id});
+		};
 		$scope.minusClick = function(){
 			console.log("minus");
-			socketio.emitTo($scope.id, "addMinus", {});
-		}
+			socketio.emit("addMinus", {room: $scope.id});
+		};
 	}
 
 })();

@@ -25,11 +25,11 @@
           <div class="box-body">
             <div class="form-group">
               <label for="exampleInputEmail1">Title</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter title">
+              <input type="text" ng-model="title" class="form-control" id="exampleInputEmail1" placeholder="Enter title">
             </div>
             <div class="form-group">
               <label>Question</label>
-              <textarea class="form-control" rows="3" placeholder="Enter question..."></textarea>
+              <textarea class="form-control" ng-model="question" rows="3" placeholder="Enter question..."></textarea>
             </div>
           </div>
           <!-- /.box-body -->
@@ -40,12 +40,12 @@
         </form>
       </div>
 		</div>
-    <div class="col-md-6">
+    <div class="col-md-6" ng-repeat="(key, question) in questions">
       <!-- Box Comment -->
       <div class="box box-widget">
         <div class="box-header with-border">
-          <span class="title"><h4>What is it?</h4></span>
-          <span class="description"><i> 7:30 PM Today</i></span>
+          <span class="title"><h4>{{question.title}}</h4></span>
+          <span class="description"><i>{{question.date}}</i></span>
           <!-- /.user-block -->
           <div class="box-tools">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -56,33 +56,19 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <!-- post text -->
-          <p>How do you make it ?</p>
-
-          <p>the coast of the Semantics, a large language ocean.
-            A small river named Duden flows by their place and supplies
-            it with the necessary regelialia. It is a paradisematic
-            country, in which roasted parts of sentences fly into
-            your mouth.</p>
+          {{question.body}}
 
 
           <!-- Social sharing buttons -->
           <button type="button" ng-click="plusClick()" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-down"></i> +1</button>
           <button type="button" ng-click="minusClick()" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> -1</button>
-          <span class="pull-right text-muted">+42 score - 2 Comments</span>
+          <span class="pull-right text-muted">+{{question.plus - question.minus}} score - {{question.comments.length}} Comments</span>
         </div>
         <!-- /.box-body -->
         <div class="box-footer box-comments">
-          <div class="box-comment">
-              <span class="text-muted pull-right">8:03 PM Today</span>
-              It is a long established fact that a reader will be distracted
-              by the readable content of a page when looking at its layout.
-            <!-- /.comment-text -->
-          </div>
-          <div class="box-comment">
-              <span class="text-muted pull-right">1:03 PM Today</span>
-              This is a test test... Lorem Ipsum malf fkedo olkr kmvmk dkvvf.
-              Lorem Ipsum malf fkedo olkr kmvmk dkvvf Lorem Ipsum malf fkedo olkr kmvmk dkvvf Lorem Ipsum malf fkedo olkr kmvmk dkvvf ?
+          <div ng-repeat="(key, comment) in question.comments" class="box-comment">
+              <span class="text-muted pull-right">{{comment.date}}</span>
+              {{comment.comment}}
             <!-- /.comment-text -->
           </div>
           <!-- /.box-comment -->

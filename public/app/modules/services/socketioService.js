@@ -25,9 +25,7 @@
         var services = {
             on: on,
             emit: emit,
-            init: init,
-            join: join,
-            emitTo: emitTo
+            init: init
         }
 
         return services;
@@ -42,23 +40,6 @@
                 var args = arguments;
                 $rootScope.$apply(function() {
                     callback.apply($window.socket, args);
-                });
-            });
-        }
-
-        function join(roomName) {
-            $window.socket.join(roomName);
-        }
-
-        // TODO : UTILISER LE $scope pour la réception des callback
-
-        function emitTo(roomName, eventName, data, callback){
-            $window.socket.to(roomName).emit(eventName, data, function() {
-                var args = arguments;
-                $rootScope.$apply(function() {
-                    if (callback) {
-                        callback.apply($window.socket, args);
-                    }
                 });
             });
         }

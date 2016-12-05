@@ -28,7 +28,7 @@ var QuestionSchema = new Schema({
         type: Date, 
         default: new Date()
     },
-    comment:[
+    comments:[
         {type: Schema.Types.ObjectId, ref: 'Comment'}
     ]
 });
