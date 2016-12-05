@@ -9,6 +9,11 @@
  * @author Guillaume Serneels
  * 
  */
+
+// TODO à deux endroit on a l'url hardcodée dans Angular
+// TODO Fix le problème de l'injection avec grunt
+// TODO Clean le projet les dépendences...
+// TODO faire un controller avec l'api
 var express     = require('express');
 var app         = express();
 var request     = require('request-promise');
@@ -200,7 +205,7 @@ getToken = function (headers) {
 };
 
 var roomService = require('./controllers/roomservice.js');
-roomservice.setup(io);
+roomService.setup(io);
  
 // connect the api routes under /api/*
 app.use('/api', apiRoutes);

@@ -29,7 +29,7 @@
 		'register',
 		'profile',
 		'sidebar',
-		'header'
+		'header',
 	]);
 
 })();

@@ -12,6 +12,14 @@
 	 * @author Guillaume Serneels
 	 */
 
-	angular.module('room', []);
+	angular.module('room', ['socketio'])
+		.run(setupSocketIO);
 
+	setupSocketIO.$inject = ['socketio', '$rootScope'];
+
+	function setupSocketIO(socketio, $rootscope){
+		console.log("Set up socket io");
+		console.log(socketio);
+		socketio.init();
+	}
 })();
