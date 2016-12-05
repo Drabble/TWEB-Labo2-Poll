@@ -11,7 +11,7 @@ var QuestionSchema = new Schema({
         required: true
     },
     question: {
-        type: Boolean,
+        type: String,
         required: true
     },
     plus: {

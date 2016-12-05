@@ -10,9 +10,13 @@ function RoomService(){
             socket.on('joinRoom', function(msg){
                 console.log("joinRoom");
                 socket.join(msg.room)
-                Question.find({}, function(err, questions) {
-                    socket.emit("listQuestions", questions);
-                });
+                Question.find({})
+                    .populate('comments')
+                    .exec(function(err, questions) {
+                        socket.emit("listQuestions", questions)
+                    });
+                
+                
             });
             socket.on('addQuestion', function(msg){
                 console.log("addQuestion");

@@ -54,17 +54,17 @@
 			console.log("create question");
 			socketio.emit("addQuestion", {room: $scope.id, title: $scope.title, question: $scope.question});
 		};
-		$scope.commentSubmit = function(){
+		$scope.commentSubmit = function(questionId){
 			console.log("create comment");
-			socketio.emit("addComment", {room: $scope.id});
+			socketio.emit("addComment", {room: $scope.id, question: questionId, comment: "Test"});
 		};
-		$scope.plusClick = function(){
+		$scope.plusClick = function(questionId){
 			console.log("plus");
-			socketio.emit("addPlus", {room: $scope.id});
+			socketio.emit("addPlus", {room: $scope.id, question: questionId});
 		};
-		$scope.minusClick = function(){
+		$scope.minusClick = function(questionId){
 			console.log("minus");
-			socketio.emit("addMinus", {room: $scope.id});
+			socketio.emit("addMinus", {room: $scope.id, question: questionId});
 		};
 	}
 
