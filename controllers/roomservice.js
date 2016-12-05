@@ -10,13 +10,15 @@ function RoomService(){
             socket.on('joinRoom', function(msg){
                 console.log("joinRoom");
                 socket.join(msg.room)
-                Question.find({})
-                    .populate('comments')
+                Question.find({}).populate("comments.comment")
                     .exec(function(err, questions) {
+                        /*for(var question in questions){
+                            for(var comment in questions[question].comments){
+                                questions[question].comments[comment] = Comment.find({ "_id": questions[question].comments[comment]});
+                            }
+                        }*/
                         socket.emit("listQuestions", questions)
-                    });
-                
-                
+                });
             });
             socket.on('addQuestion', function(msg){
                 console.log("addQuestion");
@@ -41,8 +43,10 @@ function RoomService(){
                     question.save(function(err) {
                         if (err) throw err;
                         io.to(msg.room).emit("addComment", comment);
+                        console.log(question);
                     });
                 });
+                console.log("WTF");
             });
             socket.on('addPlus', function(msg){
                 // save the comment

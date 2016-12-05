@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var Question = require('./comment');
+var Comment = require('./comment');
 
 
 // set up a mongoose model

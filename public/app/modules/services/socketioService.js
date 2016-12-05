@@ -1,4 +1,3 @@
-
 (function () {
 	'use strict';
 
@@ -15,8 +14,8 @@
     var socketio = angular.module('socketio', []);
 
     socketio.factory('socketio', socketFactory);
- 	// Inject your dependencies as .$inject = ['$http', 'someSevide'];
-	// function Name ($http, someSevide) {...}
+    // Inject your dependencies as .$inject = ['$http', 'someSevide'];
+    // function Name ($http, someSevide) {...}
 
 	socketFactory.$inject = ['$window', '$rootScope'];
 
@@ -25,8 +24,8 @@
         var services = {
             on: on,
             emit: emit,
-            init: init
-        }
+            init: init,
+        };
 
         return services;
 
@@ -48,9 +47,9 @@
             $window.socket.emit(eventName, data, function() {
                 var args = arguments;
                 $rootScope.$apply(function() {
-                if (callback) {
-                    callback.apply($window.socket, args);
-                }
+                    if (callback) {
+                        callback.apply($window.socket, args);
+                    }
                 });
             });
         }

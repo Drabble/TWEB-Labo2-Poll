@@ -27,6 +27,7 @@
 	function Room($scope, $http, $stateParams, socketio) {
 		$scope.id = $stateParams.id;
 		$scope.questions = [];
+		$scope.comments = {};
 		socketio.emit("joinRoom", {room: $scope.id});
 		socketio.on("listQuestions", function(questions){
 			console.log("new listQuestions");
