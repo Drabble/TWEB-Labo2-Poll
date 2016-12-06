@@ -10,7 +10,7 @@ function RoomService(){
             socket.on('joinRoom', function(msg){
                 console.log("joinRoom");
                 socket.join(msg.room)
-                Question.find({}).populate("comments.comment")
+                Question.find({}).populate("comments")
                     .exec(function(err, questions) {
                         /*for(var question in questions){
                             for(var comment in questions[question].comments){
@@ -37,7 +37,7 @@ function RoomService(){
                     comment: msg.comment
                 });
                 // save the comment
-                Question.findOne({id: msg.question}, function(err, question){
+                Question.findOne({_id: msg.question}, function(err, question){
                     if (err) throw err;
                     question.comments.push(comment);
                     question.save(function(err) {
@@ -46,11 +46,10 @@ function RoomService(){
                         console.log(question);
                     });
                 });
-                console.log("WTF");
             });
             socket.on('addPlus', function(msg){
                 // save the comment
-                Question.findOne({id: msg.question}, function(err, question){
+                Question.findOne({_id: msg.question}, function(err, question){
                     if (err) throw err;
                     question.plus = question.plus + 1;
                     question.save(function(err) {
@@ -61,12 +60,12 @@ function RoomService(){
             });
             socket.on('addMinus', function(msg){
                 // save the comment
-                Question.findOne({id: msg.question}, function(err, question){
+                Question.findOne({_id: msg.question}, function(err, question){
                     if (err) throw err;
                     question.minus = question.minus + 1;
                     question.save(function(err) {
                         if (err) throw err;
-                        io.to(msg.room).emit("addMinus", {question: question});
+                        io.to(msg.room).emit("addMinus", question);
                     });
                 });
             });

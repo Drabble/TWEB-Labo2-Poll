@@ -24,6 +24,7 @@ var passport	  = require('passport');
 var config      = require('./config/database'); // get db config file
 var User        = require('./models/user'); // get the mongoose model
 var Room        = require('./models/room'); // get the mongoose model
+var Comment    = require('./models/comment'); // get the mongoose model
 var Question    = require('./models/question'); // get the mongoose model
 var port        = process.env.PORT || 5000;
 var jwt         = require('jwt-simple');

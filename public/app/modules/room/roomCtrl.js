@@ -46,10 +46,22 @@
 		socketio.on("addPlus", function(question){
 			console.log("new addPlus");
 			console.log(question);
+			for(var i in $scope.questions){
+				if($scope.questions[i]._id == question._id){
+					$scope.questions[i].plus = question.plus;
+					break;
+				}
+			}
 		});
 		socketio.on("addMinus", function(question){
 			console.log("new addMinus");
 			console.log(question);
+			for(var i in $scope.questions){
+				if($scope.questions[i]._id == question._id){
+					$scope.questions[i].minus = question.minus;
+					break;
+				}
+			}
 		});
 		$scope.questionSubmit = function(){
 			console.log("create question");
@@ -60,6 +72,7 @@
 			socketio.emit("addComment", {room: $scope.id, question: questionId, comment: "Test"});
 		};
 		$scope.plusClick = function(questionId){
+			console.log(questionId);
 			console.log("plus");
 			socketio.emit("addPlus", {room: $scope.id, question: questionId});
 		};
