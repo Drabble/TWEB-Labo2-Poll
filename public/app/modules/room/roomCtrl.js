@@ -69,6 +69,7 @@
 		};
 		$scope.commentSubmit = function(questionId){
 			console.log("create comment");
+			console.log($scope.comments[questionId]);
 			socketio.emit("addComment", {room: $scope.id, question: questionId, comment: "Test"});
 		};
 		$scope.plusClick = function(questionId){

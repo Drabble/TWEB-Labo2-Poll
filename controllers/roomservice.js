@@ -10,6 +10,10 @@ function RoomService(){
             socket.on('joinRoom', function(msg){
                 console.log("joinRoom");
                 socket.join(msg.room)
+                Comment.find({})
+                    .exec(function(err, comments) {
+                        console.log(comments);
+                    });
                 Question.find({}).populate("comments")
                     .exec(function(err, questions) {
                         /*for(var question in questions){
@@ -17,6 +21,7 @@ function RoomService(){
                                 questions[question].comments[comment] = Comment.find({ "_id": questions[question].comments[comment]});
                             }
                         }*/
+                        if(err) throw err;
                         socket.emit("listQuestions", questions)
                 });
             });
@@ -39,11 +44,13 @@ function RoomService(){
                 // save the comment
                 Question.findOne({_id: msg.question}, function(err, question){
                     if (err) throw err;
-                    question.comments.push(comment);
-                    question.save(function(err) {
-                        if (err) throw err;
-                        io.to(msg.room).emit("addComment", comment);
-                        console.log(question);
+                    comment.save(function(err){
+                        question.comments.push(comment);
+                        question.save(function(err) {
+                            if (err) throw err;
+                            io.to(msg.room).emit("addComment", comment);
+                            console.log(question);
+                        });
                     });
                 });
             });
