@@ -54,9 +54,9 @@ The **master branch** of this repository contains the source code of the Interac
 
 The structure of this app has been generated using the [AngularJS 1](https://angularjs.org) application generator [angm](https://github.com/newaeonweb/generator-angm)version 0.0.1. The application's navigation relies on the [UI-Router](https://github.com/angular-ui/ui-router) framework.
 
-The aplication's database has been modeled using [Mongoose](http://mongoosejs.com/) above MongoDB.
+The database has been modeled using [Mongoose](http://mongoosejs.com/) above MongoDB.
 
-This AngularJS application is then deployed to Heroku, along with the [mLab MongoDB](https://elements.heroku.com/addons/mongolab) module.
+Our application is then deployed to Heroku, along with the [mLab MongoDB](https://elements.heroku.com/addons/mongolab) module.
 
 ### Feature 1 : Home page
 
