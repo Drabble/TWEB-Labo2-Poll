@@ -39,17 +39,18 @@ function RoomService(){
             });
             socket.on('addComment', function(msg){
                 var comment = new Comment({
-                    comment: msg.comment
+                    comment: msg.comment,
+                    question: msg.question
                 });
                 // save the comment
                 Question.findOne({_id: msg.question}, function(err, question){
                     if (err) throw err;
                     comment.save(function(err){
+                        if(err) throw err;
                         question.comments.push(comment);
                         question.save(function(err) {
                             if (err) throw err;
                             io.to(msg.room).emit("addComment", comment);
-                            console.log(question);
                         });
                     });
                 });

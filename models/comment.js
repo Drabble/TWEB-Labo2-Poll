@@ -12,6 +12,8 @@ var CommentSchema = new Schema({
         type: Date, 
         default: new Date()
     },
+    question: {type: Schema.Types.ObjectId, ref: 'Question'}
+    
 });
  
 module.exports = mongoose.model('Comment', CommentSchema);

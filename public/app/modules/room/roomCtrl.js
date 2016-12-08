@@ -42,6 +42,12 @@
 		socketio.on("addComment", function(comment){
 			console.log("new addComment");
 			console.log(comment);
+			for(var i in $scope.questions){
+				if($scope.questions[i]._id == comment.question){
+					$scope.questions[i].comments.push(comment);
+					break;
+				}
+			}
 		});
 		socketio.on("addPlus", function(question){
 			console.log("new addPlus");
@@ -70,7 +76,7 @@
 		$scope.commentSubmit = function(questionId){
 			console.log("create comment");
 			console.log($scope.comments[questionId]);
-			socketio.emit("addComment", {room: $scope.id, question: questionId, comment: "Test"});
+			socketio.emit("addComment", {room: $scope.id, question: questionId, comment: $scope.comments[questionId]});
 		};
 		$scope.plusClick = function(questionId){
 			console.log(questionId);
