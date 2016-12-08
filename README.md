@@ -50,7 +50,7 @@ grunt dev
 
 ## Poll web application
 
-The **master branch** of this repository contains the source code of the github explorer web app as deployed on [heroku](www.heroku.com).
+The **master branch** of this repository contains the source code of the Interactive Polls web app. The current version 1.0.0, as deployed on [heroku](www.heroku.com), is a preview version, allowing the user to visualize the visual interfaces of the different features which will be implemented.
 
 The structure of this app has been generated using the [AngularJS 1](https://angularjs.org) application generator [angm](https://github.com/newaeonweb/generator-angm)version 0.0.1. The application's navigation relies on the [UI-Router](https://github.com/angular-ui/ui-router) framework.
 
