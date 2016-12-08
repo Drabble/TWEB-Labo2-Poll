@@ -2,7 +2,7 @@
 
 This repository contains the progres of the second lab session for Antoine Drabble and Guillaume Serneels in the TWEB Course 2016-2017 at HEIG-VD. 
 
-The project is aimed at developing and deploying an AngularJS 1 web application allowing users to participate in interactives polls. The application is currently under developement and the available version 0.1 consists of a preview.
+The project is aimed at developing and deploying an AngularJS 1 web application allowing users to participate in interactives polls. The application is currently under developement and the available version 1.0.0 consists of a preview.
 
 As they access the release version of the web app, users will be directed to a landing page from where they can create and join Rooms. 
 Inside a Room, every user can create questions and post comments. Thumb up and thumb down buttons provide the polling functionnality, allowing the user to upvote and downvote each question.
@@ -19,7 +19,7 @@ To run this application preview locally, you must install the Node.js environmen
 node version 5.9.1
 npm version 1.4.x
 
-You must also install MongoDB [MongoDB](https://docs.mongodb.com/getting-started/shell/installation/).
+You must also install [MongoDB](https://docs.mongodb.com/getting-started/shell/installation/).
 
 And set up an environement variable to point to your MongoDB instance, this can be done:
 
