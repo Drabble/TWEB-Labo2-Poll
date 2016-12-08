@@ -14,14 +14,12 @@ A preview version of our application is currently deployed on Heroku at the foll
 
 https://tweb-interactive-polls.herokuapp.com/
 
-To run this application preview locally, you must install the Node.js environment according to the following version requirements:
+To run this application preview locally, you must install the Node.js environment and npm packet manager according to the following version requirements:
 
 node version 5.9.1
 npm version 1.4.x
 
-You must also install [MongoDB](https://docs.mongodb.com/getting-started/shell/installation/).
-
-And set up an environement variable to point to your MongoDB instance, this can be done:
+You must also install [MongoDB](https://docs.mongodb.com/getting-started/shell/installation/)on your machine and set up an environement variable to point to your MongoDB instance, this can be done:
 
 For Mac/Linux users
 
