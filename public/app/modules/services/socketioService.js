@@ -30,8 +30,7 @@
         return services;
 
         function init(){
-            var ioUrl = "http://localhost:5000";
-            $window.socket = io(ioUrl);
+            $window.socket = io();
         }
 
         function on(eventName, callback) {
