@@ -26,15 +26,15 @@ You also need to set an environment variable for the secret used for generating 
 For Mac/Linux users
 
 ```
-export MONGODB_URI="mongodb://username:password@localhost:27017/example"
-export MONGODB_URI="/)=6wv789t6f890Gjjv805(t5()"
+export MONGODB_URI="mongodb://username:password@localhost:27017/poll"
+export MONGODB_URI="mySecretKeyPleaseChange"
 ```
 
 For Windows users
 
 ```
-SET MONGODB_URI="mongodb://username:password@localhost:27017/example"
-set MONGODB_URI="/)=6wv789t6f890Gjjv805(t5()"
+set MONGODB_URI="mongodb://username:password@localhost:27017/poll"
+set MONGODB_URI="mySecretKeyPleaseChange"
 ```
 
 From there you can clone this repo on your local machine and navigate to the root folder. Where you have to install grunt and the project dependencies (npm and bower):
