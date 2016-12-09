@@ -25,13 +25,13 @@ You must also install [MongoDB](https://docs.mongodb.com/getting-started/shell/i
 For Mac/Linux users
 
 ```
-export MONGODB_URI="mongodb://example:example@ds053312.mongolab.com:53312/database"
+export MONGODB_URI="mongodb://username:password@localhost:27017/example"
 ```
 
 For Windows users
 
 ```
-SET MONGODB_URI="mongodb://example:example@ds053312.mongolab.com:53312/database"
+SET MONGODB_URI="mongodb://username:password@localhost:27017/example"
 ```
 
 From there you can clone this repo on your local machine and navigate to the root folder. Where you have to install grunt and the project dependencies (npm and bower):
