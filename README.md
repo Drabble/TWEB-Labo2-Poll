@@ -27,14 +27,14 @@ For Mac/Linux users
 
 ```
 export MONGODB_URI="mongodb://username:password@localhost:27017/poll"
-export MONGODB_URI="mySecretKeyPleaseChange"
+export PASSPORT_SECRET="mySecretKeyPleaseChange"
 ```
 
 For Windows users
 
 ```
 set MONGODB_URI="mongodb://username:password@localhost:27017/poll"
-set MONGODB_URI="mySecretKeyPleaseChange"
+set PASSPORT_SECRET="mySecretKeyPleaseChange"
 ```
 
 From there you can clone this repo on your local machine and navigate to the root folder. Where you have to install grunt and the project dependencies (npm and bower):
