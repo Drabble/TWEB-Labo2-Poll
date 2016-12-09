@@ -48,9 +48,9 @@ grunt dev
 
 ## Poll web application
 
-The **master branch** of this repository contains the source code of the Interactive Polls web app. The current version 1.0.0, as deployed on [Heroku](www.heroku.com), is a preview version, allowing the user to visualize the visual interfaces of the different features which will be implemented.
+The **master branch** of this repository contains the source code of the Interactive Polls web app. It is currently deployed on [Heroku](www.heroku.com) and you can already login, register, view your profile, create rooms, questions, comments, thumbs up and thumb down.
 
-The structure of this app has been generated using the [AngularJS 1](https://angularjs.org) application generator [angm](https://github.com/newaeonweb/generator-angm)version 0.0.1. The application's navigation relies on the [UI-Router](https://github.com/angular-ui/ui-router) framework.
+The structure of the frontend has been generated using the [AngularJS 1](https://angularjs.org) application generator [angm](https://github.com/newaeonweb/generator-angm) version 0.0.1. The application's navigation relies on the [UI-Router](https://github.com/angular-ui/ui-router) framework.
 
 We used [NPM](https://www.npmjs.com/) for the backend dependencies and [Bower](https://bower.io/) for the frontend dependencies.
 
@@ -61,6 +61,8 @@ We use [Less](http://lesscss.org/) for the css.
 The database has been modeled using [Mongoose](http://mongoosejs.com/) which is an ODM for MongoDB.
 
 Our application is then deployed to Heroku, along with the [mLab MongoDB](https://elements.heroku.com/addons/mongolab) module.
+
+We use [Socketio](http://socket.io/) for the room page. It allows you to see and update the rooms questions and comments in real time.
 
 ### Feature 1 : Home page
 
