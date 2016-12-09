@@ -54,6 +54,8 @@ The **master branch** of this repository contains the source code of the Interac
 
 The structure of the front-end has been generated using the [AngularJS 1](https://angularjs.org) application generator [angm](https://github.com/newaeonweb/generator-angm) version 0.0.1. The application's navigation relies on the [UI-Router](https://github.com/angular-ui/ui-router) framework.
 
+We used NodeJS, Express.js and passport.js for our REST backend.
+
 We used [NPM](https://www.npmjs.com/) for the back-end dependencies and [Bower](https://bower.io/) for the front-end dependencies.
 
 We use [Grunt](http://gruntjs.com/) for building the webapp. Only one task is defined for the moment: `grunt dev`. It allows dependency injection in the index.ejs file, less files compilation, live reload, uglify...
