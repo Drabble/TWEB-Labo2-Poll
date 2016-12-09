@@ -33,11 +33,12 @@ For Windows users
 SET MONGODB_URI="mongodb://example:example@ds053312.mongolab.com:53312/database"
 ```
 
-From there you can clone this repo on your local machine and navigate to the root folder. Where you have to install grunt and the project dependencies:
+From there you can clone this repo on your local machine and navigate to the root folder. Where you have to install grunt and the project dependencies (npm and bower):
 
 ```
 npm install -g grunt
 npm install
+bower install
 ```
 
 Finally you can start the project on localhost port 5000 with the following command:
@@ -50,9 +51,9 @@ grunt dev
 
 The **master branch** of this repository contains the source code of the Interactive Polls web app. It is currently deployed on [Heroku](www.heroku.com) and you can already login, register, view your profile, create rooms, questions, comments, thumbs up and thumb down.
 
-The structure of the frontend has been generated using the [AngularJS 1](https://angularjs.org) application generator [angm](https://github.com/newaeonweb/generator-angm) version 0.0.1. The application's navigation relies on the [UI-Router](https://github.com/angular-ui/ui-router) framework.
+The structure of the front-end has been generated using the [AngularJS 1](https://angularjs.org) application generator [angm](https://github.com/newaeonweb/generator-angm) version 0.0.1. The application's navigation relies on the [UI-Router](https://github.com/angular-ui/ui-router) framework.
 
-We used [NPM](https://www.npmjs.com/) for the backend dependencies and [Bower](https://bower.io/) for the frontend dependencies.
+We used [NPM](https://www.npmjs.com/) for the back-end dependencies and [Bower](https://bower.io/) for the front-end dependencies.
 
 We use [Grunt](http://gruntjs.com/) for building the webapp. Only one task is defined for the moment: `grunt dev`. It allows dependency injection in the index.ejs file, less files compilation, live reload, uglify...
 
@@ -97,7 +98,7 @@ The right part of the page shows every questions created in the Room so far. The
 
 ### html template
 
-The html template we're using is Alma Seed Studio from [adminlte](https://almsaeedstudio.com/).
+The html template we're using is Alma Seed Studio from [adminlte](https://almsaeedstudio.com/) built on Bootstrap 3.
 
 ## Detailed information about the module's version used
 
