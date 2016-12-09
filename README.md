@@ -66,43 +66,55 @@ Our application is then deployed to Heroku, along with the [mLab MongoDB](https:
 
 We use [Socketio](http://socket.io/) for the room page. It allows you to see and update the rooms questions and comments in real time.
 
-### Feature 1 : Home page
+## Landing page
 
-The landing page of our application is the Home Page where users can register, login and navigate to the Poll creation. The left part of the page, which is shared among every pages of our apllication, displays the different Rooms that the user has joined as well as a "Create new room button". 
+Our home page is the landing page of our application. From there, users can register, login and navigate to the Poll creation. The left part of the page displays, once the user is logged in, the different Rooms that the user has joined as well as a "Create new room" button. 
 
-To join an existing room, the user can click ont the top left "Join a room" button.
+To join an existing room, the user can fill the "Join a room" text field, in the top left corner, with the name of the room and click on the appended button to join it. If no room name has been provided, a click on this button redirects the user to the Room creation section.
 
 The page displays the current number of users, questions and temporary or persistent rooms created as well as a chart showing the amount of rooms created each month. Here is what it looks like in our current preview version.
 
-![Preview 1](preview1.png)
+![Landing Page Preview](images/preview1.png)
+
+## Features
+
+### Feature 1 : Register and Login
+
+Clicking on the Register and Login buttons, at the top right of the home page, redirects user to a form where they can fill their credentials in order to, respectively, create an account or log into their account.
+
+![Preview Register](images/preview_register.png)
+
+![Preview Login](images/preview_login.png)
+
 
 ### Feature 2 : Room creation
 
 After clicking on the "Create new room button", the Room creation page is displayed. It consits of a form allowing the user to fill in the room's name along with a "Temporary" check box to determine if the room should be temporary or persistent.
 
-![Preview Room Creation](preview_room_create.png)
+![Preview Room Creation](images/preview_room_create.png)
 
 ### Feature 3 : Poll creation
 
 Once the user has created a new Room or joined an existing Room, the Poll creation page is displayed. From there, the user has the opportunity of filling a form to ask a new question in the room.
-The right part of the page shows every questions created in the Room so far. The user can comment, upvote or downvote each question using the appropriate button.
+The right part of the page shows every questions created in the Room so far.
 
-![Preview 2](preview2.png)
+![Preview Poll Creation](images/preview2.png)
 
 ### Feature 4 : Account management
 
-...
+As a logged in user, a click on the username in the top left corner, displays two option: a "Sign Out" button, to log out of the application, and a "Profile" button which displays the detailed informations about the user's account.
+
+![Preview Account](images/preview_account.png)
+
 
 ### Feature 5 : Poll usage
 
-...
+Inside a Room, each question is diplayed and users can comment, upvote or downvote each question using the appropriate buttons.
+
+![Preview Question](images/preview_question.png)
 
 ### html template
 
 The html template we're using is Alma Seed Studio from [adminlte](https://almsaeedstudio.com/) built on Bootstrap 3.
 
-## Detailed information about the module's version used
 
-
-
-...
