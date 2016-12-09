@@ -1,11 +1,11 @@
 # TWEB Labo 2 : Interactive Poll application
 
-This repository contains the progres of the second lab session for Antoine Drabble and Guillaume Serneels in the TWEB Course 2016-2017 at HEIG-VD. 
+This repository contains the progress of the second lab session for Antoine Drabble and Guillaume Serneels in the TWEB Course 2016-2017 at HEIG-VD. 
 
 The project is aimed at developing and deploying an AngularJS 1 web application allowing users to participate in interactives polls. The application is currently under developement and the available version 1.0.0 consists of a preview.
 
-As they access the release version of the web app, users will be directed to a landing page from where they can create and join Rooms. 
-Inside a Room, every user can create questions and post comments. Thumb up and thumb down buttons provide the polling functionnality, allowing the user to upvote and downvote each question.
+As they access the release version of the web app, users will be directed to a landing page from where they can login, register and join Rooms. Only logged users can create rooms.
+Inside a Room, users can create questions and post comments. Thumb up and thumb down buttons provide the polling functionnality, allowing the user to upvote and downvote each question.
 
 
 ## Getting started
@@ -48,11 +48,17 @@ grunt dev
 
 ## Poll web application
 
-The **master branch** of this repository contains the source code of the Interactive Polls web app. The current version 1.0.0, as deployed on [heroku](www.heroku.com), is a preview version, allowing the user to visualize the visual interfaces of the different features which will be implemented.
+The **master branch** of this repository contains the source code of the Interactive Polls web app. The current version 1.0.0, as deployed on [Heroku](www.heroku.com), is a preview version, allowing the user to visualize the visual interfaces of the different features which will be implemented.
 
 The structure of this app has been generated using the [AngularJS 1](https://angularjs.org) application generator [angm](https://github.com/newaeonweb/generator-angm)version 0.0.1. The application's navigation relies on the [UI-Router](https://github.com/angular-ui/ui-router) framework.
 
-The database has been modeled using [Mongoose](http://mongoosejs.com/) above MongoDB.
+We used [NPM](https://www.npmjs.com/) for the backend dependencies and [Bower](https://bower.io/) for the frontend dependencies.
+
+We use [Grunt](http://gruntjs.com/) for building the webapp. Only one task is defined for the moment: `grunt dev`. It allows dependency injection in the index.ejs file, less files compilation, live reload, uglify...
+
+We use [Less](http://lesscss.org/) for the css.
+
+The database has been modeled using [Mongoose](http://mongoosejs.com/) which is an ODM for MongoDB.
 
 Our application is then deployed to Heroku, along with the [mLab MongoDB](https://elements.heroku.com/addons/mongolab) module.
 
