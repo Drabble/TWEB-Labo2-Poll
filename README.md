@@ -54,7 +54,7 @@ The **master branch** of this repository contains the source code of the Interac
 
 The structure of the front-end has been generated using the [AngularJS 1](https://angularjs.org) application generator [angm](https://github.com/newaeonweb/generator-angm) version 0.0.1. The application's navigation relies on the [UI-Router](https://github.com/angular-ui/ui-router) framework.
 
-We used NodeJS, Express.js and passport.js for our REST backend.
+We used [NodeJS](https://nodejs.org/en/) 6.5.0, [Express.js](http://expressjs.com/) and [passport.js](http://passportjs.org/) for our REST backend.
 
 We used [NPM](https://www.npmjs.com/) for the back-end dependencies and [Bower](https://bower.io/) for the front-end dependencies.
 
@@ -64,9 +64,11 @@ We use [Less](http://lesscss.org/) for the css.
 
 The database has been modeled using [Mongoose](http://mongoosejs.com/) which is an ODM for MongoDB.
 
-Our application is then deployed to Heroku, along with the [mLab MongoDB](https://elements.heroku.com/addons/mongolab) module.
+Our application is then deployed on Heroku, along with the [mLab MongoDB](https://elements.heroku.com/addons/mongolab) module.
 
 We use [Socketio](http://socket.io/) for the room page. It allows you to see and update the rooms questions and comments in real time.
+
+You can find most of the libraries/frameworks we used and their versions in the `bower.json` and `package.json` files. 
 
 ## Landing page
 
