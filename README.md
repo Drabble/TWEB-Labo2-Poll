@@ -16,7 +16,7 @@ https://tweb-interactive-polls.herokuapp.com/
 
 To run this application preview locally, you must install the Node.js environment as well as the dependencies managers, npm and bower, according to the following version requirements:
 
-node version 5.9.1
+node version 6.5.0
 npm version 1.4.x
 bower version 1.7.9
 
