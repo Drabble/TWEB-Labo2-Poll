@@ -20,18 +20,21 @@ node version 6.5.0
 npm version 1.4.x
 bower version 1.7.9
 
-You must also install [MongoDB](https://docs.mongodb.com/getting-started/shell/installation/) on your machine and set up an environement variable to point to your MongoDB instance, this can be done:
+You must install [MongoDB](https://docs.mongodb.com/getting-started/shell/installation/) on your machine and set up an environement variable to point to your MongoDB instance.
+You also need to set an environment variable for the secret used for generating the JWT (Json Web Token). This can be done:
 
 For Mac/Linux users
 
 ```
-export MONGODB_URI="mongodb://localhost:27017/poll"
+export MONGODB_URI="mongodb://username:password@localhost:27017/example"
+export MONGODB_URI="/)=6wv789t6f890Gjjv805(t5()"
 ```
 
 For Windows users
 
 ```
-set MONGODB_URI="mongodb://localhost:27017/poll"
+SET MONGODB_URI="mongodb://username:password@localhost:27017/example"
+SET MONGODB_URI="/)=6wv789t6f890Gjjv805(t5()"
 ```
 
 From there you can clone this repo on your local machine and navigate to the root folder. Where you have to install grunt and the project dependencies (npm and bower):
