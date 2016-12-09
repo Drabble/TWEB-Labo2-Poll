@@ -100,18 +100,20 @@ The right part of the page shows every questions created in the Room so far.
 
 ![Preview Poll Creation](images/preview2.png)
 
-### Feature 4 : Account management
-
-As a logged in user, a click on the **Username** in the top left corner, displays two option: a **Sign Out** button, to log out of the application, and a **Profile** button which displays the detailed informations about the user's account.
-
-![Preview Account](images/preview_account.png)
-
-
-### Feature 5 : Poll usage
+### Feature 4 : Poll usage
 
 Inside a Room, each question is diplayed and users can comment, upvote or downvote each question using the appropriate buttons.
 
 ![Preview Question](images/preview_question.png)
+
+### Feature 5 : Account management
+
+As a logged in user, a click on the **Username** in the top right corner, displays two option: a **Sign Out** button, to log out of the application, and a **Profile** button which displays the detailed informations about the user's account.
+
+![Preview Account](images/preview_account.png)
+
+
+
 
 ### html template
 
