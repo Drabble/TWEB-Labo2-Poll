@@ -19,18 +19,18 @@ To run this application preview locally, you must install the Node.js environmen
 node version 5.9.1
 npm version 1.4.x
 
-You must also install [MongoDB](https://docs.mongodb.com/getting-started/shell/installation/)on your machine and set up an environement variable to point to your MongoDB instance, this can be done:
+You must also install [MongoDB](https://docs.mongodb.com/getting-started/shell/installation/) on your machine and set up an environement variable to point to your MongoDB instance, this can be done:
 
 For Mac/Linux users
 
 ```
-export MONGOLAB_URI="mongodb://example:example@ds053312.mongolab.com:53312/database"
+export MONGODB_URI="mongodb://example:example@ds053312.mongolab.com:53312/database"
 ```
 
 For Windows users
 
 ```
-SET MONGOLAB_URI="mongodb://example:example@ds053312.mongolab.com:53312/database"
+SET MONGODB_URI="mongodb://example:example@ds053312.mongolab.com:53312/database"
 ```
 
 From there you can clone this repo on your local machine and navigate to the root folder. Where you have to install grunt and the project dependencies:
