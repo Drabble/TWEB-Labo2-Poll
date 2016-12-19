@@ -81,9 +81,9 @@ apiRoutes.post('/signup', function(req, res) {
     // save the user
     newUser.save(function(err) {
       if (err) {
-        return res.json({success: false, msg: 'Username already exists.'});
+        return res.status(400).json({msg: 'Username already exists.'});
       }
-      res.json({success: true, msg: 'Successful created new user.'});
+      res.status(201).json({success: true, msg: 'Successful created new user.'});
     });
   }
 });
@@ -96,7 +96,7 @@ apiRoutes.post('/authenticate', function(req, res) {
     if (err) throw err;
  
     if (!user) {
-      res.send({success: false, msg: 'Authentication failed. User not found.'});
+      res.status(400).send({msg: 'Authentication failed. User not found.'});
     } else {
       // check if password matches
       user.comparePassword(req.body.password, function (err, isMatch) {
@@ -104,9 +104,9 @@ apiRoutes.post('/authenticate', function(req, res) {
           // if user is found and password is right create a token
           var token = jwt.encode(user, config.secret);
           // return the information including token as JSON
-          res.json({success: true, token: 'JWT ' + token});
+          res.status(200).json({token: 'JWT ' + token});
         } else {
-          res.send({success: false, msg: 'Authentication failed. Wrong password.'});
+          res.status(400).send({msg: 'Authentication failed. Wrong password.'});
         }
       });
     }
@@ -124,13 +124,13 @@ apiRoutes.get('/account', passport.authenticate('jwt', { session: false}), funct
         if (err) throw err;
  
         if (!user) {
-          return res.status(403).send({success: false, msg: 'Authentication failed. User not found.'});
+          return res.status(403).send({msg: 'Authentication failed. User not found.'});
         } else {
-          res.json({success: true, username: user.name});
+          res.status(200).json({success: true, username: user.name});
         }
     });
   } else {
-    return res.status(403).send({success: false, msg: 'No token provided.'});
+    return res.status(403).send({msg: 'No token provided.'});
   }
 });
 
