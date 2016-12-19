@@ -14,6 +14,8 @@
 // TODO Fix le problème de l'injection avec grunt
 // TODO Clean le projet les dépendences...
 // TODO faire un controller avec l'api
+// TODO mettre toute la config dans un fichier config.js comme dans l'exemple IOB-SERVER du prof
+
 var express     = require('express');
 var app         = express();
 var request     = require('request-promise');
@@ -96,7 +98,7 @@ apiRoutes.post('/authenticate', function(req, res) {
     if (err) throw err;
  
     if (!user) {
-      res.status(400).send({msg: 'Authentication failed. User not found.'});
+      res.status(401).send({msg: 'Authentication failed. User not found.'});
     } else {
       // check if password matches
       user.comparePassword(req.body.password, function (err, isMatch) {
@@ -106,7 +108,7 @@ apiRoutes.post('/authenticate', function(req, res) {
           // return the information including token as JSON
           res.status(200).json({token: 'JWT ' + token});
         } else {
-          res.status(400).send({msg: 'Authentication failed. Wrong password.'});
+          res.status(401).send({msg: 'Authentication failed. Wrong password.'});
         }
       });
     }
