@@ -72,7 +72,7 @@ var apiRoutes = express.Router();
 // create a new user account (POST http://localhost:8080/api/signup)
 apiRoutes.post('/signup', function(req, res) {
   if (!req.body.name || !req.body.password) {
-    res.json({success: false, msg: 'Please pass name and password.'});
+    res.status(422).json({msg: 'Please pass name and password.'});
   } else {
     var newUser = new User({
       name: req.body.name,
@@ -81,9 +81,9 @@ apiRoutes.post('/signup', function(req, res) {
     // save the user
     newUser.save(function(err) {
       if (err) {
-        return res.status(400).json({msg: 'Username already exists.'});
+        return res.status(409).json({msg: 'Username already exists.'});
       }
-      res.status(201).json({success: true, msg: 'Successful created new user.'});
+      res.status(201).json({msg: 'Successful created new user.'});
     });
   }
 });
@@ -126,7 +126,7 @@ apiRoutes.get('/account', passport.authenticate('jwt', { session: false}), funct
         if (!user) {
           return res.status(403).send({msg: 'Authentication failed. User not found.'});
         } else {
-          res.status(200).json({success: true, username: user.name});
+          res.status(200).json({username: user.name});
         }
     });
   } else {
@@ -145,10 +145,10 @@ apiRoutes.post('/rooms', passport.authenticate('jwt', { session: false}), functi
         if (err) throw err;
  
         if (!user) {
-          return res.status(403).send({success: false, msg: 'Authentication failed. User not found.'});
+          return res.status(403).send({msg: 'Authentication failed. User not found.'});
         } else {
           if (!req.body.name) {
-            res.json({success: false, msg: 'Please pass name.'});
+            res.status(400).json({msg: 'Please pass name.'});
           } else {
             var newRoom = new Room({  
               name: req.body.name,
@@ -159,15 +159,15 @@ apiRoutes.post('/rooms', passport.authenticate('jwt', { session: false}), functi
             user.rooms.push(newRoom);
             user.save(function(err) {
               if (err) {
-                return res.json({success: false, msg: 'Room already exists.'});
+                return res.status(409).json({msg: 'Room already exists.'});
               }
-              res.json({success: true, msg: 'Successfully created new room.', room: newRoom.id});
+              res.status(201).json({msg: 'Successfully created new room.', room: newRoom.id});
             });
           }
         }
     });
   } else {
-    return res.status(403).send({success: false, msg: 'No token provided.'});
+    return res.status(403).send({msg: 'No token provided.'});
   }
 });
 
@@ -182,13 +182,13 @@ apiRoutes.get('/rooms', passport.authenticate('jwt', { session: false}), functio
         if (err) throw err;
  
         if (!user) {
-          return res.status(403).send({success: false, msg: 'Authentication failed. User not found.'});
+          return res.status(403).send({msg: 'Authentication failed. User not found.'});
         } else {
-          res.json({success: true, rooms: user.rooms});
+          res.status(200).json({rooms: user.rooms});
         }
     });
   } else {
-    return res.status(403).send({success: false, msg: 'No token provided.'});
+    return res.status(403).send({msg: 'No token provided.'});
   }
 });
  
