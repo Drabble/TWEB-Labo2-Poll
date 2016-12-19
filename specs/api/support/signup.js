@@ -1,4 +1,4 @@
-var apiPrefix = "http://localhost:3000";
+var apiPrefix = "http://localhost:5000/api";
 var api = require("supertest-as-promised")(apiPrefix);
 var Chance = require("chance");
 var chance = new Chance();
