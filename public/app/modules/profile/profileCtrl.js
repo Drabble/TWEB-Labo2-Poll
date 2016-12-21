@@ -37,14 +37,11 @@
 		}).then(
 			function(res) {
 				console.log('retrieve profile success !', res.data);
-				if(res.data.success){
-					$scope.username = res.data.username;
-				} else{
-					$scope.error = res.data.msg;
-				}
+					$scope.username = res.data.username
 			},
 			function(err) {
 				console.log('retrieve profile...', err);
+				$scope.error = err.data.msg;
 			}
 		);
 	}

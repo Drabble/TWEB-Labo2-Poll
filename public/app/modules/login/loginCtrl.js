@@ -38,16 +38,12 @@
 				}).then(
 					function(res) {
 						console.log('login success !', res.data);
-						if(res.data.success){
 							$cookies.put("token", res.data.token);
 							$state.go('profile'); 
-						} else{
-							$scope.error = res.data.msg;
-						}
 					},
 					function(err) {
 						console.log('login error...', err);
-						$scope.error = "Internal server error";
+						$scope.error = err.data.msg;
 					}
 				);
 			} else{

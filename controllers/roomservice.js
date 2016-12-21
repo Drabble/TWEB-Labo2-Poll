@@ -16,11 +16,6 @@ function RoomService(){
                     });
                 Question.find({}).populate("comments")
                     .exec(function(err, questions) {
-                        /*for(var question in questions){
-                            for(var comment in questions[question].comments){
-                                questions[question].comments[comment] = Comment.find({ "_id": questions[question].comments[comment]});
-                            }
-                        }*/
                         if(err) throw err;
                         socket.emit("listQuestions", questions)
                 });

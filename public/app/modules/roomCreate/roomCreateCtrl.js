@@ -31,23 +31,19 @@
 				$http({
 					method: 'POST',
 					url: '/api/rooms', 
-					data: { name: $scope.name, temporary: $scope.temporary },
+					data: { name: $scope.name },
 					headers: { 'Content-Type': 'application/json',
 						       'Authorization': $scope.token  
 					}
 				}).then(
 					function(res) {
 						console.log('room success !', res.data);
-						if(res.data.success){
-							$rootScope.$broadcast('newRoom', res.data.room);
-							$state.go("room", {"id": res.data.room});
-						} else{
-							$scope.error = res.data.msg;
-						}
+						$rootScope.$broadcast('newRoom', res.data.room);
+						$state.go("room", {"id": res.data.room});
 					},
 					function(err) {
 						console.log('room create error...', err);
-						$scope.error = "Internal server error";
+						$scope.error = err.data.msg;
 					}
 				);
 			} else{

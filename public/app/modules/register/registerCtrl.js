@@ -38,18 +38,13 @@
 				}).then(
 					function(res) {
 						console.log('register success !', res.data);
-						if(res.data.success){
-							$scope.success = "Register successful";
-							$scope.error = null;
-						} else{
-							$scope.error = res.data.msg;
-							$scope.success = null;
-						}
+						$scope.success = "Register successful";
+						$scope.error = null;
 					},
 					function(err) {
 						console.log('register error...', err);
-						$scope.error = "Internal server error";
-							$scope.success = null;
+						$scope.error = err.data.msg;
+						$scope.success = null;
 					}
 				);
 			} else{

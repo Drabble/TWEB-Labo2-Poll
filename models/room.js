@@ -9,10 +9,6 @@ var RoomSchema = new Schema({
         unique: false,
         required: true
     },
-    temporary: {
-        type: Boolean,
-        required: true
-    },
     questions:[
         {type: Schema.Types.ObjectId, ref: 'Question'}
     ]
