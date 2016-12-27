@@ -17,14 +17,14 @@
 		.module('room')
 		.controller('RoomCtrl', Room);
 
-	Room.$inject = ['$scope', '$http', '$stateParams', 'socketio'];
+	Room.$inject = ['$scope', '$http', '$stateParams', 'socketio', '$cookies'];
 
 	/*
 	* @summary instantiates the Gefeature1 module
 	* Fetches the list of the most starred repos from the database using
 	* the REST API url /most_starred_repos
 	*/
-	function Room($scope, $http, $stateParams, socketio) {
+	function Room($scope, $http, $stateParams, socketio, $cookies) {
 		$scope.id = $stateParams.id;
 		$scope.questions = [];
 		$scope.comments = {};
@@ -83,11 +83,23 @@
 		$scope.plusClick = function(questionId){
 			console.log(questionId);
 			console.log("plus");
-			socketio.emit("addPlus", {room: $scope.id, question: questionId});
+			if(!$cookies.get("like_" + questionId)) {
+				socketio.emit("addPlus", {room: $scope.id, question: questionId});
+			} else if($cookies.get("like_" + questionId) == "minus"){
+				socketio.emit("addPlus", {room: $scope.id, question: questionId});
+				socketio.emit("addPlus", {room: $scope.id, question: questionId});
+			}
+			$cookies.put("like_" + questionId, "plus");
 		};
 		$scope.minusClick = function(questionId){
 			console.log("minus");
-			socketio.emit("addMinus", {room: $scope.id, question: questionId});
+			if(!$cookies.get("like_" + questionId)) {
+				socketio.emit("addMinus", {room: $scope.id, question: questionId});
+			} else if($cookies.get("like_" + questionId) === "plus"){
+				socketio.emit("addMinus", {room: $scope.id, question: questionId});
+				socketio.emit("addMinus", {room: $scope.id, question: questionId});
+			}
+			$cookies.put("like_" + questionId, "minus");
 		};
 	}
 

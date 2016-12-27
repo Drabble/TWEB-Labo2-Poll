@@ -10,11 +10,18 @@
  *
  */
 
-// TODO à deux endroit on a l'url hardcodée dans Angular
-// TODO Fix le problème de l'injection avec grunt
-// TODO Clean le projet les dépendences...
 // TODO faire un controller avec l'api
 // TODO mettre toute la config dans un fichier config.js comme dans l'exemple IOB-SERVER du prof
+	// TODO Mettre le code dans les services angular
+	// TODO Clean les fichiers js
+	// TODO Injection de css ?
+	// TODO compléter le register et profile
+	// TODO afficher le nom de la room plutôt que son id ?
+	// TODO Pour les likes on gère les cookies côté socketio ou frontend?
+	// TODO Améliorer la landing page
+// TODO Mettre le code de la sidebar header et footer dans les controllers ?
+	// TODO Fix erreur qui s'affiche des fois quand on crée des rooms
+	// TODO limiter le nombre de commentaire aux questions (a l'affichage)
 
 var express     = require('express');
 var app         = express();
@@ -31,11 +38,8 @@ var Question    = require('./models/question'); // get the mongoose model
 var port        = process.env.PORT || 5000;
 var jwt         = require('jwt-simple');
 var http        = require('http');
-var io          = require('socket.io');
 var server      = http.createServer(app);
-var io          = io.listen(server);
-
-
+var io          = require('socket.io').listen(server);
 
 // get our request parameters
 app.use(bodyParser.urlencoded({ extended: false }));
