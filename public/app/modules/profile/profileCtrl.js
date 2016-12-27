@@ -36,7 +36,7 @@
 					 }
 		}).then(
 			function(res) {
-				$scope.username = res.data.username
+				$scope.username = res.data.username;
 			},
 			function(err) {
 				console.log('retrieve profile...', err);

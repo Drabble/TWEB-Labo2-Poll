@@ -29,7 +29,7 @@ module.exports = function (grunt) {
 		},
 
 		exec: {
-			bowerInstaller: 'bower-installer',
+			bowerInstaller: 'bower install',
 			startServer: 'node index.js'
 		},
 
@@ -129,8 +129,6 @@ module.exports = function (grunt) {
 				  compress: true
 				},
 				files: {
-					// compilation.css  :  source.less
-					"public/dist/css/AdminLTE.min.css": "build/less/AdminLTE.less",
 					// Skins minified
 					"public/dist/css/skins/skin-blue.min.css": "build/less/skins/skin-blue.less",
 					"public/dist/css/skins/skin-black.min.css": "build/less/skins/skin-black.less",
@@ -171,12 +169,18 @@ module.exports = function (grunt) {
 			},
 			production: {
 				files: {
-					'index.html': [
+					'views/pages/index.ejs': [
 						'bower.json',
-						'public/app/assets/css/**/*.css',
-						'public/app/assets/js/*.js'
+						'public/app/app.js',
+						'public/app/app.config.js',
+						'public/app/**/*Module.js',
+						'public/app/**/*Route.js',
+						'public/app/**/*Ctrl.js',
+						'public/app/**/*Service.js',
+						'public/app/**/*Directive.js',
+						'public/app/lib/Chart.js',
+						'public/app/lib/angular-chart.js'
 					]
-
 				}
 			}
 		},
@@ -205,7 +209,7 @@ module.exports = function (grunt) {
 
 	// LESS Compiler
 	grunt.loadNpmTasks('grunt-contrib-less');
-	
+
 	// Register grunt tasks
 	grunt.registerTask("build", [
 		"jshint",

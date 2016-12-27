@@ -6,8 +6,8 @@
 	* @name app.controller:gefeature1Ctrl
 	* @description
 	* # gefeature1Ctrl
-	* Controller of the github explorer app feature 1,  displays a 
-	* list of the most starred repos on github	
+	* Controller of the github explorer app feature 1,  displays a
+	* list of the most starred repos on github
 	* @author Antoine Drabble
 	* @author Guillaume Serneels
 	*
@@ -21,7 +21,7 @@
 
 	/*
 	* @summary instantiates the Gefeature1 module
-	* Fetches the list of the most starred repos from the database using 
+	* Fetches the list of the most starred repos from the database using
 	* the REST API url /most_starred_repos
 	*/
 	function Room($scope, $http, $stateParams, socketio) {
@@ -43,7 +43,7 @@
 			console.log("new addComment");
 			console.log(comment);
 			for(var i in $scope.questions){
-				if($scope.questions[i]._id == comment.question){
+				if($scope.questions[i]._id === comment.question){
 					$scope.questions[i].comments.push(comment);
 					break;
 				}
@@ -53,7 +53,7 @@
 			console.log("new addPlus");
 			console.log(question);
 			for(var i in $scope.questions){
-				if($scope.questions[i]._id == question._id){
+				if($scope.questions[i]._id === question._id){
 					$scope.questions[i].plus = question.plus;
 					break;
 				}
@@ -63,7 +63,7 @@
 			console.log("new addMinus");
 			console.log(question);
 			for(var i in $scope.questions){
-				if($scope.questions[i]._id == question._id){
+				if($scope.questions[i]._id === question._id){
 					$scope.questions[i].minus = question.minus;
 					break;
 				}
