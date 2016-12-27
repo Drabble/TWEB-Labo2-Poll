@@ -12,16 +12,19 @@
 
 // TODO faire un controller avec l'api
 // TODO mettre toute la config dans un fichier config.js comme dans l'exemple IOB-SERVER du prof
-	// TODO Mettre le code dans les services angular
-	// TODO Clean les fichiers js
-	// TODO Injection de css ?
-	// TODO compléter le register et profile
-	// TODO afficher le nom de la room plutôt que son id ?
-	// TODO Pour les likes on gère les cookies côté socketio ou frontend?
-	// TODO Améliorer la landing page
+// TODO Mettre le code dans les services angular
+// TODO Clean les fichiers js
+// TODO Injection de css ?
+// TODO compléter le register et profile
+// TODO afficher le nom de la room plutôt que son id ?
+// TODO Pour les likes on gère les cookies côté socketio ou frontend?
+// TODO Améliorer la landing page
 // TODO Mettre le code de la sidebar header et footer dans les controllers ?
-	// TODO Fix erreur qui s'affiche des fois quand on crée des rooms
-	// TODO limiter le nombre de commentaire aux questions (a l'affichage)
+// TODO Fix erreur qui s'affiche des fois quand on crée des rooms
+// TODO limiter le nombre de commentaire aux questions (a l'affichage)
+// TODO Commenter
+// TODO Indenter
+// TODO Gérer le cas ou la room existe pas
 
 var express     = require('express');
 var app         = express();
@@ -82,11 +85,15 @@ apiRoutes.post('/signup', function(req, res) {
   } else {
     var newUser = new User({
       name: req.body.name,
-      password: req.body.password
+      password: req.body.password,
+		email: req.body.email,
+		firstname: req.body.firstname,
+		lastname: req.body.lastname
     });
     // save the user
     newUser.save(function(err) {
       if (err) {
+      	console.log(err);
         return res.status(409).json({msg: 'Username already exists.'});
       }
       res.status(201).json({msg: 'Successful created new user.'});
@@ -132,7 +139,7 @@ apiRoutes.get('/account', passport.authenticate('jwt', { session: false}), funct
         if (!user) {
           return res.status(403).send({msg: 'Authentication failed. User not found.'});
         } else {
-          res.status(200).json({username: user.name});
+          res.status(200).json({username: user.name, firstname: user.firstname, email: user.email, lastname: user.lastname, createdAt: user.createdAt});
         }
     });
   } else {

@@ -88,7 +88,7 @@
 			console.log("plus");
 			if(!$cookies.get("like_" + questionId)) {
 				socketio.emit("addPlus", {room: $scope.id, question: questionId});
-			} else if($cookies.get("like_" + questionId) == "minus"){
+			} else if($cookies.get("like_" + questionId) === "minus"){
 				socketio.emit("addPlus", {room: $scope.id, question: questionId});
 				socketio.emit("addPlus", {room: $scope.id, question: questionId});
 			}

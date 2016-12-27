@@ -33,7 +33,13 @@
 				$http({
 					method: 'POST',
 					url: '/api/signup', 
-					data: { name: $scope.username, password: $scope.password },
+					data: {
+						name: $scope.username,
+						password: $scope.password,
+						email: $scope.email,
+						lastname: $scope.lastname,
+						firstname: $scope.firstname
+					},
 					headers: { 'Content-Type': 'application/json' }
 				}).then(
 					function(res) {

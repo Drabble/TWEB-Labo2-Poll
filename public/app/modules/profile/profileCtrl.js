@@ -37,6 +37,10 @@
 		}).then(
 			function(res) {
 				$scope.username = res.data.username;
+				$scope.firstname = res.data.firstname;
+				$scope.lastname = res.data.lastname;
+				$scope.createdAt = res.data.createdAt;
+				$scope.email = res.data.email;
 			},
 			function(err) {
 				console.log('retrieve profile...', err);

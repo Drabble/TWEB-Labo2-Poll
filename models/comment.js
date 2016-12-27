@@ -8,12 +8,14 @@ var CommentSchema = new Schema({
         unique: false,
         required: true
     },
-    date: { 
-        type: Date, 
+    date: {
+        type: Date,
         default: new Date()
     },
     question: {type: Schema.Types.ObjectId, ref: 'Question'}
-    
+},
+{
+	timestamps: true
 });
- 
+
 module.exports = mongoose.model('Comment', CommentSchema);

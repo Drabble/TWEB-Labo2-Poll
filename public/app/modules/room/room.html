@@ -60,7 +60,7 @@
 
           <!-- Social sharing buttons -->
           <button type="button" ng-disabled="question.like == 'plus'" ng-class="{'btn-primary': question.like == 'plus'}" ng-click="plusClick(question._id)" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> +1</button>
-          <button type="button" ng-disabled="question.like == 'minus'" ng-class="{'btn-primary': question.like == 'minus'}" ng-click="minusClick(question._id)" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-down"></i> -1</button>
+          <button type="button" ng-disabled="question.like == 'minus'" ng-class="{'btn-danger': question.like == 'minus'}" ng-click="minusClick(question._id)" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-down"></i> -1</button>
           <span class="pull-right text-muted">{{question.plus - question.minus}} score - {{question.comments.length}} Comments</span>
         </div>
         <!-- /.box-body -->

@@ -32,6 +32,9 @@ var QuestionSchema = new Schema({
         {type: Schema.Types.ObjectId, ref: 'Comment'}
     ],
 	room: {type: Schema.Types.ObjectId, ref: 'Room'}
+},
+{
+	timestamps: true
 });
 
 module.exports = mongoose.model('Question', QuestionSchema);

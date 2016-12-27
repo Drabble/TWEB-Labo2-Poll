@@ -2,23 +2,38 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcryptjs = require('bcryptjs');
 var Room = require('./room');
- 
+
 // set up a mongoose model
 var UserSchema = new Schema({
-  name: {
+  	name: {
         type: String,
         unique: true,
         required: true
     },
-  password: {
+  	password: {
         type: String,
         required: true
     },
-  rooms:[
+	firstname: {
+		type: String,
+		required: true
+	},
+	lastname: {
+		type: String,
+		required: true
+	},
+	email: {
+		type: String,
+		required: true
+	},
+  	rooms:[
         {type: Schema.Types.ObjectId, ref: 'Room'}
     ]
+},
+{
+	timestamps: true
 });
- 
+
 UserSchema.pre('save', function (next) {
     var user = this;
     if (this.isModified('password') || this.isNew) {
@@ -38,7 +53,7 @@ UserSchema.pre('save', function (next) {
         return next();
     }
 });
- 
+
 UserSchema.methods.comparePassword = function (passw, cb) {
     bcryptjs.compare(passw, this.password, function (err, isMatch) {
         if (err) {
@@ -47,5 +62,5 @@ UserSchema.methods.comparePassword = function (passw, cb) {
         cb(null, isMatch);
     });
 };
- 
+
 module.exports = mongoose.model('User', UserSchema);

@@ -9,6 +9,9 @@ var RoomSchema = new Schema({
         unique: false,
         required: true
     }
+},
+{
+	timestamps: true
 });
 
 module.exports = mongoose.model('Room', RoomSchema);
