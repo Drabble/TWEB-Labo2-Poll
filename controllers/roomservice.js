@@ -10,11 +10,7 @@ function RoomService(){
             socket.on('joinRoom', function(msg){
                 console.log("joinRoom");
                 socket.join(msg.room)
-                Comment.find({})
-                    .exec(function(err, comments) {
-                        console.log(comments);
-                    });
-                Question.find({}).populate("comments")
+                Question.find({room : msg.room}).populate("comments")
                     .exec(function(err, questions) {
                         if(err) throw err;
                         socket.emit("listQuestions", questions)
@@ -24,7 +20,8 @@ function RoomService(){
                 console.log("addQuestion");
                 var question = new Question({
                     title: msg.title,
-                    question: msg.question
+                    question: msg.question,
+					room: msg.room
                 });
                 // save the question
                 question.save(function(err) {

@@ -7,7 +7,7 @@
  * @link https://tweb-github-explorer.herokuapp.com/
  * @author Antoine Drabble
  * @author Guillaume Serneels
- * 
+ *
  */
 
 // TODO à deux endroit on a l'url hardcodée dans Angular
@@ -40,10 +40,10 @@ var io          = io.listen(server);
 // get our request parameters
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
- 
+
 // log to console
 app.use(morgan('dev'));
- 
+
 // Use the passport package in our application
 app.use(passport.initialize());
 
@@ -64,13 +64,13 @@ app.get('/', function (request, response) {
 
 // connect to database
 mongoose.connect(config.database);
- 
+
 // pass passport for configuration
 require('./config/passport')(passport);
- 
+
 // bundle our routes
 var apiRoutes = express.Router();
- 
+
 // create a new user account (POST http://localhost:8080/api/signup)
 apiRoutes.post('/signup', function(req, res) {
   if (!req.body.name || !req.body.password) {
@@ -96,7 +96,7 @@ apiRoutes.post('/authenticate', function(req, res) {
     name: req.body.name
   }, function(err, user) {
     if (err) throw err;
- 
+
     if (!user) {
       res.status(401).send({msg: 'Authentication failed. User not found.'});
     } else {
@@ -124,7 +124,7 @@ apiRoutes.get('/account', passport.authenticate('jwt', { session: false}), funct
       name: decoded.name
     }, function(err, user) {
         if (err) throw err;
- 
+
         if (!user) {
           return res.status(403).send({msg: 'Authentication failed. User not found.'});
         } else {
@@ -145,14 +145,14 @@ apiRoutes.post('/rooms', passport.authenticate('jwt', { session: false}), functi
       name: decoded.name
     }, function(err, user) {
         if (err) throw err;
- 
+
         if (!user) {
           return res.status(403).send({msg: 'Authentication failed. User not found.'});
         } else {
           if (!req.body.name) {
             res.status(400).json({msg: 'Please pass name.'});
           } else {
-            var newRoom = new Room({  
+            var newRoom = new Room({
               name: req.body.name,
               temporary: req.body.temporary
             });
@@ -182,7 +182,6 @@ apiRoutes.get('/rooms', passport.authenticate('jwt', { session: false}), functio
       name: decoded.name
     }, function(err, user) {
         if (err) throw err;
- 
         if (!user) {
           return res.status(403).send({msg: 'Authentication failed. User not found.'});
         } else {
@@ -193,7 +192,7 @@ apiRoutes.get('/rooms', passport.authenticate('jwt', { session: false}), functio
     return res.status(403).send({msg: 'No token provided.'});
   }
 });
- 
+
 getToken = function (headers) {
   if (headers && headers.authorization) {
     var parted = headers.authorization.split(' ');
@@ -209,7 +208,7 @@ getToken = function (headers) {
 
 var roomService = require('./controllers/roomservice.js');
 roomService.setup(io);
- 
+
 // connect the api routes under /api/*
 app.use('/api', apiRoutes);
 

@@ -24,13 +24,14 @@ var QuestionSchema = new Schema({
         required: true,
         default: 0
     },
-    date: { 
-        type: Date, 
+    date: {
+        type: Date,
         default: new Date()
     },
     comments:[
         {type: Schema.Types.ObjectId, ref: 'Comment'}
-    ]
+    ],
+	room: {type: Schema.Types.ObjectId, ref: 'Room'}
 });
- 
+
 module.exports = mongoose.model('Question', QuestionSchema);

@@ -8,10 +8,7 @@ var RoomSchema = new Schema({
         type: String,
         unique: false,
         required: true
-    },
-    questions:[
-        {type: Schema.Types.ObjectId, ref: 'Question'}
-    ]
+    }
 });
- 
+
 module.exports = mongoose.model('Room', RoomSchema);

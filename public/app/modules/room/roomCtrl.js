@@ -72,6 +72,8 @@
 		$scope.questionSubmit = function(){
 			console.log("create question");
 			socketio.emit("addQuestion", {room: $scope.id, title: $scope.title, question: $scope.question});
+			$scope.title = "";
+			$scope.question = "";
 		};
 		$scope.commentSubmit = function(questionId){
 			console.log("create comment");

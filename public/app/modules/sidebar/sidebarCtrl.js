@@ -6,8 +6,8 @@
 	* @name app.controller:gefeature1Ctrl
 	* @description
 	* # gefeature1Ctrl
-	* Controller of the github explorer app feature 1,  displays a 
-	* list of the most starred repos on github	
+	* Controller of the github explorer app feature 1,  displays a
+	* list of the most starred repos on github
 	* @author Antoine Drabble
 	* @author Guillaume Serneels
 	*
@@ -21,7 +21,7 @@
 
 	/*
 	* @summary instantiates the Gefeature1 module
-	* Fetches the list of the most starred repos from the database using 
+	* Fetches the list of the most starred repos from the database using
 	* the REST API url /most_starred_repos
 	*/
 	function Sidebar($scope, $http, $cookies, $state) {
@@ -31,18 +31,13 @@
 			if($scope.logged){
 				$http({
 					method: 'GET',
-					url: '/api/rooms', 
+					url: '/api/rooms',
 					headers: { 'Content-Type': 'application/json',
-							'Authorization': $scope.logged 
+							'Authorization': $scope.logged
 					}
 				}).then(
 					function(res) {
-						console.log('rooms success !', res.data);
-						if(res.data.success){
-							$scope.rooms = res.data.rooms;
-						} else{
-							$scope.error = res.data.msg;
-						}
+						$scope.rooms = res.data.rooms;
 					},
 					function(err) {
 						console.log('rooms error...', err);
