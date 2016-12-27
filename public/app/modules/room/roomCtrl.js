@@ -32,6 +32,9 @@
 		socketio.on("listQuestions", function(questions){
 			console.log("new listQuestions");
 			console.log(questions);
+			for(var question in questions){
+				questions[question].like = $cookies.get("like_" + questions[question]._id);
+			}
 			$scope.questions = questions;
 		});
 		socketio.on("addQuestion", function(question){
@@ -78,7 +81,7 @@
 		$scope.commentSubmit = function(questionId){
 			console.log("create comment");
 			console.log($scope.comments[questionId]);
-			socketio.emit("addComment", {room: $scope.id, question: questionId, comment: $scope.comments[questionId]});
+			socketio.emit("addComment", {room: $scope._id, question: questionId, comment: $scope.comments[questionId]});
 		};
 		$scope.plusClick = function(questionId){
 			console.log(questionId);
@@ -90,6 +93,9 @@
 				socketio.emit("addPlus", {room: $scope.id, question: questionId});
 			}
 			$cookies.put("like_" + questionId, "plus");
+			for(var question in $scope.questions){
+				$scope.questions[question].like = $cookies.get("like_" + $scope.questions[question]._id);
+			}
 		};
 		$scope.minusClick = function(questionId){
 			console.log("minus");
@@ -100,6 +106,9 @@
 				socketio.emit("addMinus", {room: $scope.id, question: questionId});
 			}
 			$cookies.put("like_" + questionId, "minus");
+			for(var question in $scope.questions){
+				$scope.questions[question].like = $cookies.get("like_" + $scope.questions[question]._id);
+			}
 		};
 	}
 
