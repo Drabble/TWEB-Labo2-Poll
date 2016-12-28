@@ -8,7 +8,7 @@ chai.use(require('chai-things'));
 
 describe("The /room endpoint", function () {
     it("should allow a user to register, login and create a new room", itShouldAllowAUserToRegisterLoginAndCreateANewRoom);
-    it("should allow a user to register, login and get the list of all rooms", itShouldAllowAUserToRegisterLoginAndGetTheListOfAllRooms);
+    it("should allow a user to register, login and get the list of all the rooms he has created", itShouldAllowAUserToRegisterLoginAndGetTheListOfAllTheRoomsHeHasCreated);
     it("should NOT allow a user that is not authenticated to get the list of all rooms");//itShouldNotAllowAUserThatIsNotAuthenticatedToGetTheListOfAllRooms
     it("should NOT allow a user with a fake JSON Web Token to get the list of all rooms");//itShouldNotAllowAUserWithAFakeJSONWebTokenToGetTheListOfAllRooms
 });
@@ -27,8 +27,8 @@ function itShouldAllowAUserToRegisterLoginAndCreateANewRoom(){
             return authenticate.authenticate(credentials);
         })
         .then(function(response) {
-            var jsonWebToken = response.body;
-            return rooms.createRoom(payload);
+            var jsonWebToken = response.body.token;
+            return rooms.createRoom(payload,jsonWebToken);
         })
         .then(function(response){
             response.status.should.equal(201);
@@ -36,7 +36,7 @@ function itShouldAllowAUserToRegisterLoginAndCreateANewRoom(){
         });
 }
 
-function itShouldAllowAUserToRegisterLoginAndGetTheListOfAllRooms(){
+function itShouldAllowAUserToRegisterLoginAndGetTheListOfAllTheRoomsHeHasCreated(){
     var user = signup.generateUser();
     var credentials = {
         name: user.name,
@@ -47,12 +47,12 @@ function itShouldAllowAUserToRegisterLoginAndGetTheListOfAllRooms(){
             return authenticate.authenticate(credentials);
         })
         .then(function(response) {
-            var jsonWebToken = response.body;
+            var jsonWebToken = response.body.token;
             return rooms.getRooms(jsonWebToken);
         })
         .then(function(response){
             response.status.should.equal(200);
-            response.body.should.be.an("array");  
+            response.body.rooms.should.be.an("array");  
             return response;          
         });
 }

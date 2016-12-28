@@ -6,7 +6,7 @@ var chance = new Chance();
 function getRooms(jsonWebToken) {
     var request = api.get("/rooms");
     if(jsonWebToken != undefined){
-        request.set('Authorization', 'Bearer ' + jsonWebToken)
+        request.set('Authorization',jsonWebToken)
     }
     return request
         .then(function(response){
@@ -16,8 +16,7 @@ function getRooms(jsonWebToken) {
 
 function generateRoom(){
     return{
-        name: chance.word(),
-        temporary: true
+        name: chance.word()
     }
 }
 
@@ -25,7 +24,7 @@ function createRoom(room,jsonWebToken){
     return api
         .post('/rooms')
         .set('Content-Type', 'application/json')
-        .set('Authorization', 'Bearer ' + jsonWebToken)
+        .set('Authorization',jsonWebToken)
         .send(room)
         .then(function(response){
             return response;

@@ -165,7 +165,6 @@ apiRoutes.post('/rooms', passport.authenticate('jwt', { session: false}), functi
           } else {
             var newRoom = new Room({
               name: req.body.name,
-              temporary: req.body.temporary
             });
 
             // save the room
