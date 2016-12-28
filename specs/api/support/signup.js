@@ -17,8 +17,11 @@ function signup(user){
 
 function generateUser(){
     return {
-        name: chance.first(),
-        password: "supersecretpassword"
+        name: chance.word(),
+        password: "supersecretpassword",
+        email:chance.email(),
+        firstname: chance.first(),
+        lastname: chance.last({ nationality: "it" })
     }
 
 }
