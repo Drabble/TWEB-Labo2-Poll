@@ -15,7 +15,6 @@
 // TODO Mettre le code dans les services angular
 // TODO Clean les fichiers js
 // TODO Injection de css ?
-// TODO compléter le register et profile
 // TODO afficher le nom de la room plutôt que son id ?
 // TODO Pour les likes on gère les cookies côté socketio ou frontend?
 // TODO Améliorer la landing page
@@ -36,7 +35,7 @@ var passport	  = require('passport');
 var config      = require('./config/database'); // get db config file
 var User        = require('./models/user'); // get the mongoose model
 var Room        = require('./models/room'); // get the mongoose model
-var Comment    = require('./models/comment'); // get the mongoose model
+var Comment     = require('./models/comment'); // get the mongoose model
 var Question    = require('./models/question'); // get the mongoose model
 var port        = process.env.PORT || 5000;
 var jwt         = require('jwt-simple');
