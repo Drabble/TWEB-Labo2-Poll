@@ -17,13 +17,14 @@
 // TODO Injection de css ?
 // TODO afficher le nom de la room plutôt que son id ?
 // TODO Pour les likes on gère les cookies côté socketio ou frontend?
-// TODO Améliorer la landing page
+// TODO Améliorer la landing page / faire une page annexe avec le tuto et présenter les features dans la landing page avec de graphique ou autre
 // TODO Mettre le code de la sidebar header et footer dans les controllers ?
 // TODO Fix erreur qui s'affiche des fois quand on crée des rooms
 // TODO limiter le nombre de commentaire aux questions (a l'affichage)
 // TODO Commenter
 // TODO Indenter
 // TODO Gérer le cas ou la room existe pas
+// TODO Spécifier MongoDB version
 
 var express     = require('express');
 var app         = express();
