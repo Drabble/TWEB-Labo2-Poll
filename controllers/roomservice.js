@@ -7,6 +7,8 @@ function RoomService(){
     function setup(io){
         socketio = io;
         socketio.on("connection", function(socket){
+            socket.emit("connect", "test");
+            console.log("client connecté");
             socket.on('joinRoom', function(msg){
                 console.log("joinRoom");
                 socket.join(msg.room)
