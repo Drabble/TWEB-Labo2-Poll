@@ -4,10 +4,10 @@
 	/**
 	 * @ngdoc index
 	 * @name app
-	 * @description 
-	 * 
+	 * @description
+	 *
 	 * Declares the modules of the github explorer app
-	 * 
+	 *
 	 * @author Antoine Drabble
 	 * @author Guillaume Serneels
 	 * Main modules of the application.
@@ -22,7 +22,7 @@
 		'ngTouch',
 		'ngSanitize',
 		'ui.router',
-		'home',	
+		'home',
 		'room',
 		'roomCreate',
 		'login',
@@ -30,6 +30,7 @@
 		'profile',
 		'sidebar',
 		'header',
+		'help'
 	]);
 
 })();

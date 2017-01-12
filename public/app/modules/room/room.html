@@ -45,7 +45,7 @@
       <div class="box box-widget">
         <div class="box-header with-border">
           <span class="title"><h4>{{question.title}}</h4></span>
-          <span class="description"><i>{{question.date}}</i></span>
+          <span class="description"><i>{{question.date | date:"dd/MM/yyyy 'at' h:mma"}}</i></span>
           <!-- /.user-block -->
           <div class="box-tools">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -66,7 +66,7 @@
         <!-- /.box-body -->
         <div class="box-footer box-comments">
           <div ng-repeat="(key, comment) in question.comments" class="box-comment">
-              <span class="text-muted pull-right">{{comment.date}}</span>
+              <span class="text-muted pull-right">{{comment.date | date:"dd/MM/yyyy 'at' h:mma"}}</span>
               {{comment.comment}}
             <!-- /.comment-text -->
           </div>
