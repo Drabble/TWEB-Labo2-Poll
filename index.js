@@ -10,12 +10,15 @@
  *
  */
 
-// TODO CHANGER LE NOM en haut à droite
-// TODO afficher le nom de la room plutôt que son id ?
-// TODO Améliorer la landing page
 // TODO limiter le nombre de commentaire aux questions (a l'affichage)
-// TODO Gérer le cas ou la room existe pas
-// TODO Spécifier MongoDB version
+// Gérer le cas où on passe d'une room à une autre et qu'on crée une question
+
+// TODO Throw vs console.log
+// Mettre les fonctions dans les services ?
+// Utiliser des promises ?
+
+// TODO Améliorer la landing page
+// TODO Spécifier MongoDB version et comment spécifier l'adresse de la db
 
 // TODO Commenter
 // TODO Indenter
@@ -26,7 +29,7 @@ var request     = require('request-promise');
 var bodyParser  = require('body-parser');
 var morgan      = require('morgan');
 var mongoose    = require('mongoose');
-var passport	  = require('passport');
+var passport    = require('passport');
 var config      = require('./config/database'); // get db config file
 var port        = process.env.PORT || 5000;
 var http        = require('http');

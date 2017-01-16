@@ -17,18 +17,26 @@
 		.module('room')
 		.controller('RoomCtrl', Room);
 
-	Room.$inject = ['$scope', '$http', '$stateParams', 'socketio', '$cookies'];
+	Room.$inject = ['$scope', '$stateParams', 'socketio', '$cookies'];
 
 	/*
 	* @summary instantiates the Gefeature1 module
 	* Fetches the list of the most starred repos from the database using
 	* the REST API url /most_starred_repos
 	*/
-	function Room($scope, $http, $stateParams, socketio, $cookies) {
+	function Room($scope, $stateParams, socketio, $cookies) {
 		$scope.id = $stateParams.id;
 		$scope.questions = [];
 		$scope.comments = {};
+		$scope.success = false;
 		socketio.emit("joinRoom", {room: $scope.id});
+		socketio.on("success", function(room){
+			$scope.success = true;
+			$scope.room = room;
+		});
+		socketio.on("fail", function(){
+			$scope.success = false;
+		});
 		socketio.on("listQuestions", function(questions){
 			console.log("new listQuestions");
 			console.log(questions);

@@ -28,11 +28,14 @@ module.exports = function(app) {
 
 						// save the room
 						user.rooms.push(newRoom);
-						user.save(function(err) {
+						newRoom.save(function(err){
 							if (err) {
 								return res.status(409).json({msg: 'Room already exists.'});
 							}
-							res.status(201).json({msg: 'Successfully created new room.', room: newRoom.id});
+							user.save(function(err){
+								if (err) throw err;
+								res.status(201).json({msg: 'Successfully created new room.', room: newRoom.id});
+							})
 						});
 					}
 				}
