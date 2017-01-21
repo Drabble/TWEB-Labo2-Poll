@@ -86,7 +86,6 @@ function itShouldAllowAClientToEffectievelyAddAQuestionToARoom() {
         })
         .then(function (response) {
 
-            var deferred = Promise.defer();
 
             roomNbr = response.body.room;
 
@@ -101,24 +100,36 @@ function itShouldAllowAClientToEffectievelyAddAQuestionToARoom() {
 
                 client.emit("addQuestion", myquestion);
                 client.emit("joinRoom", { room: roomNbr });
+            })
+            return client;
+        })
+        .then(function (client) {
+            client.on("success", function () {
                 client.on("listQuestions", function (questions) {
 
-                            questions.should.be.an.array;
-                            questions.should.not.be.empty;
+                    var deferred = Promise.defer();
 
-                            for (var question in questions) {
-                                console.log("list Questions");
+                    questions.should.be.an.array;
+                    questions.should.not.be.empty;
 
-                                if (questions[question].title == myquestion.title) {
-                                    questions[question].question.should.equal(myquestion.question);
-                                    deferred.resolve();
-                                }
-                            }
+                    for (var question in questions) {
+                        console.log("list Questions");
 
-                        });
+                        if (questions[question].title == myquestion.title) {
+                            questions[question].question.should.equal(myquestion.question);
+                            deferred.resolve();
+                        }
+                    }
+                    return deferred.promise;
+
+
+                });
 
             });
-            return deferred.promise;
-        });
+
+        })
+
+
+
 }
 
