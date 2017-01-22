@@ -3,10 +3,10 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.test:gefeature1Test
+	 * @name app.test:roomCreateTest
 	 * @description
-	 * # gefeature1Test
-	 * Test of the github explorer app feature 1
+	 * # roomCreateTest
+	 * Test of the roomCreate Module 
 	 * 
 	 * @author Antoine Drabble
 	 * @author Guillaume Serneels

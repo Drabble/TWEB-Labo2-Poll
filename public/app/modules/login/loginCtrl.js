@@ -3,11 +3,10 @@
 
 	/**
 	* @ngdoc function
-	* @name app.controller:gefeature1Ctrl
+	* @name app.controller:loginCtrl
 	* @description
-	* # gefeature1Ctrl
-	* Controller of the github explorer app feature 1,  displays a 
-	* list of the most starred repos on github	
+	* # loginCtrl
+	* Controller of the Login Module
 	* @author Antoine Drabble
 	* @author Guillaume Serneels
 	*
@@ -20,9 +19,7 @@
 	Login.$inject = ['$scope', '$http', '$cookies', '$state'];
 
 	/*
-	* @summary instantiates the Gefeature1 module
-	* Fetches the list of the most starred repos from the database using 
-	* the REST API url /most_starred_repos
+	* @summary login feature for the Pollspeak app
 	*/
 	function Login($scope, $http, $cookies, $state) {
 		if($cookies.get("token")){

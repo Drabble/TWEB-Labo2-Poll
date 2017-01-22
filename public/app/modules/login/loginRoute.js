@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name app.route:gefeature1Route
+ * @name app.route:loginRoute
  * @description
- * # gefeature1Route
- * Route of the github explorer app feature 1
+ * # loginRoute
+ * Route of the Login Module
  * @author Antoine Drabble
  * @author Guillaume Serneels
  */

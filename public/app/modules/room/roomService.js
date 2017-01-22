@@ -3,10 +3,10 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.service:gefeature1Service
+	 * @name app.service:roomService
 	 * @description
-	 * # gefeature1Service
-	 * Service of the github explorer app feature 1
+	 * # room1Service
+	 * Service of the room Module 
      * @author Antoine Drabble
      * @author Guillaume Serneels
 	 */

@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name app.route:gefeature1Route
+ * @name app.route:homeRoute
  * @description
- * # gefeature1Route
- * Route of the github explorer app feature 1
+ * # homeRoute
+ * Route of the Home Module 
  * @author Antoine Drabble
  * @author Guillaume Serneels
  */

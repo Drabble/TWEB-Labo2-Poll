@@ -1,10 +1,9 @@
 /**
- * Entry point of the github explorer web app, it uses Express 4 to render the Angular 1 app and
- * it provides the REST api needed for the features.
+ * Entry point of the Pollspeak web app, it uses Express 4 to render the Angular 1 app 
  *
- * @summary   Entry point of the github explorer web app
+ * @summary   Entry point of Pollspeak web app
  *
- * @link https://tweb-github-explorer.herokuapp.com/
+ * @link https://tweb-interactive-polls.herokuapp.com/
  * @author Antoine Drabble
  * @author Guillaume Serneels
  *

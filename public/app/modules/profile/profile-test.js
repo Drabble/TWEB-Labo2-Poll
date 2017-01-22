@@ -3,10 +3,10 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.test:gefeature1Test
+	 * @name app.test:profileTest
 	 * @description
-	 * # gefeature1Test
-	 * Test of the github explorer app feature 1
+	 * # profileTest
+	 * Test of the Profile Module
 	 * 
 	 * @author Antoine Drabble
 	 * @author Guillaume Serneels

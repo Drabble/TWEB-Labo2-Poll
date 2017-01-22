@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name app.route:gefeature1Route
+ * @name app.route:profileRoute
  * @description
- * # gefeature1Route
- * Route of the github explorer app feature 1
+ * # profileRoute
+ * Route of the Profile Module
  * @author Antoine Drabble
  * @author Guillaume Serneels
  */

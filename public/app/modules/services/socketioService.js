@@ -3,10 +3,13 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.service:gefeature1Service
+	 * @name app.service:socketioService
 	 * @description
-	 * # gefeature1Service
-	 * Service of the github explorer app feature 1
+	 * # socketioService
+	 * Socketio Service of the Pollspeak app
+     * Inspired from 
+     * https://codepen.io/mi-lee/post/integrate-socket-with-angular
+     * http://www.piecemeal.us/docs/socket.module.html
      * @author Antoine Drabble
      * @author Guillaume Serneels
 	 */

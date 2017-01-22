@@ -3,10 +3,10 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.service:gefeature1Service
+	 * @name app.service:helpService
 	 * @description
-	 * # gefeature1Service
-	 * Service of the github explorer app feature 1
+	 * # helpService
+	 * Help Service of the Pollspeak app
      * @author Antoine Drabble
      * @author Guillaume Serneels
 	 */

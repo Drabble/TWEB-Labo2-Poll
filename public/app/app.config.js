@@ -6,7 +6,7 @@
 	 * @name app.config:config
 	 * @description
 	 * # Config and run block
-	 * Configutation of the of the github explorer app
+	 * Configutation of the of the Pollspeak app
 	 * 
 	 * @author Antoine Drabble
 	 * @author Guillaume Serneels

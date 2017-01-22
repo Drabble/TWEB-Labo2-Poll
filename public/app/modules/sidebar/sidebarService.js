@@ -3,10 +3,10 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.service:gefeature1Service
+	 * @name app.service:sidebarService
 	 * @description
-	 * # gefeature1Service
-	 * Service of the github explorer app feature 1
+	 * # sidebarService
+	 * Service of the Pollspeak sidebar
      * @author Antoine Drabble
      * @author Guillaume Serneels
 	 */

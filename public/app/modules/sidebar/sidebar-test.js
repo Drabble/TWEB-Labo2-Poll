@@ -3,10 +3,10 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.test:gefeature1Test
+	 * @name app.test:sidebarTest
 	 * @description
-	 * # gefeature1Test
-	 * Test of the github explorer app feature 1
+	 * # gsidebarTest
+	 * Test of the sidebar of the Pollspeak app
 	 * 
 	 * @author Antoine Drabble
 	 * @author Guillaume Serneels

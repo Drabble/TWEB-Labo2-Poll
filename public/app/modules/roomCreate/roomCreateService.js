@@ -3,10 +3,10 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.service:gefeature1Service
+	 * @name app.service:roomCreateService
 	 * @description
-	 * # gefeature1Service
-	 * Service of the github explorer app feature 1
+	 * # roomCreateService
+	 * Room Creation Service of the Pollspeak app
      * @author Antoine Drabble
      * @author Guillaume Serneels
 	 */

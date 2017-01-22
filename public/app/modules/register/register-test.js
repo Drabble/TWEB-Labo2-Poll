@@ -3,10 +3,10 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.test:gefeature1Test
+	 * @name app.test:registerTest
 	 * @description
-	 * # gefeature1Test
-	 * Test of the github explorer app feature 1
+	 * # registerTest
+	 * Test of the Register Module
 	 * 
 	 * @author Antoine Drabble
 	 * @author Guillaume Serneels

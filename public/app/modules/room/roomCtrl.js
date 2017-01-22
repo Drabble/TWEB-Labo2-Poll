@@ -3,11 +3,10 @@
 
 	/**
 	* @ngdoc function
-	* @name app.controller:gefeature1Ctrl
+	* @name app.controller:roomCtrl
 	* @description
-	* # gefeature1Ctrl
-	* Controller of the github explorer app feature 1,  displays a
-	* list of the most starred repos on github
+	* # roomCtrl
+	* Controller of the room Module 
 	* @author Antoine Drabble
 	* @author Guillaume Serneels
 	*
@@ -20,9 +19,8 @@
 	Room.$inject = ['$scope', '$stateParams', 'socketio', '$cookies', '$rootScope'];
 
 	/*
-	* @summary instantiates the Gefeature1 module
-	* Fetches the list of the most starred repos from the database using
-	* the REST API url /most_starred_repos
+	* @summary room interactions implemented with the Socket.IO real-time bidirectional 
+	event-based communication library
 	*/
 	function Room($scope, $stateParams, socketio, $cookies, $rootScope) {
 		$scope.id = $stateParams.id;

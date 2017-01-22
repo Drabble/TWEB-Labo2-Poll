@@ -3,10 +3,10 @@
 
 	/**
 	 * @ngdoc index
-	 * @name app
-	 * @description
+	 * @name Pollspeak
+	 * @description 
 	 *
-	 * Declares the modules of the github explorer app
+	 * Declares the modules of the Pollspeak app
 	 *
 	 * @author Antoine Drabble
 	 * @author Guillaume Serneels

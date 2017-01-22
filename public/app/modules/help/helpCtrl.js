@@ -3,11 +3,10 @@
 
 	/**
 	* @ngdoc function
-	* @name app.controller:gefeature1Ctrl
+	* @name app.controller:helpCtrl
 	* @description
-	* # gefeature1Ctrl
-	* Controller of the github explorer app feature 1,  displays a
-	* list of the most starred repos on github
+	* # helpCtrl
+	* Controller Help Module 
 	* @author Antoine Drabble
 	* @author Guillaume Serneels
 	*
@@ -20,9 +19,7 @@
 	Help.$inject = ['$scope', '$http'];
 
 	/*
-	* @summary instantiates the Gefeature1 module
-	* Fetches the list of the most starred repos from the database using
-	* the REST API url /most_starred_repos
+	* @summary 
 	*/
 	function Help($scope, $http) {
 

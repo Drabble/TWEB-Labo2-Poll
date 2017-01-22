@@ -3,11 +3,11 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.test:gefeature1Test
+	 * @name app.test:helpTest
 	 * @description
-	 * # gefeature1Test
-	 * Test of the github explorer app feature 1
-	 *
+	 * # helpTest
+	 * Test of the Help Module 
+	 * 
 	 * @author Antoine Drabble
 	 * @author Guillaume Serneels
 	 */

@@ -3,11 +3,10 @@
 
 	/**
 	* @ngdoc function
-	* @name app.controller:gefeature1Ctrl
+	* @name app.controller:headerCtrl
 	* @description
-	* # gefeature1Ctrl
-	* Controller of the github explorer app feature 1,  displays a
-	* list of the most starred repos on github
+	* # headerCtrl
+	* Controller of the Header Module
 	* @author Antoine Drabble
 	* @author Guillaume Serneels
 	*
@@ -20,9 +19,7 @@
 	Header.$inject = ['$scope', '$http', '$cookies', '$state'];
 
 	/*
-	* @summary instantiates the Gefeature1 module
-	* Fetches the list of the most starred repos from the database using
-	* the REST API url /most_starred_repos
+	* @summary instantiates the Header and get account informations
 	*/
 	function Header($scope, $http, $cookies, $state) {
 		$scope.logged = $cookies.get("token");

@@ -3,11 +3,10 @@
 
 	/**
 	 * @ngdoc function
-	 * @name app.module:gefeature1Module
+	 * @name app.module:registerModule
 	 * @description
-	 * # gefeature1Module
-	 * Module of the github explorer app feature 1, displays a 
-	 * list of the most starred repos on github
+	 * # registerModule
+	 * Register Module of the Pollspeak app
 	 * @author Antoine Drabble
 	 * @author Guillaume Serneels
 	 */

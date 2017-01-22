@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name app.route:gefeature1Route
+ * @name app.route:roomCreateRoute
  * @description
- * # gefeature1Route
- * Route of the github explorer app feature 1
+ * # roomCreateRoute
+ * Route of the roomCreate Module 
  * @author Antoine Drabble
  * @author Guillaume Serneels
  */
