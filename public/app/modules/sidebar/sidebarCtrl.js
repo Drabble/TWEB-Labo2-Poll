@@ -17,14 +17,14 @@
 		.module('sidebar')
 		.controller('SidebarCtrl', Sidebar);
 
-	Sidebar.$inject = ['$scope', '$http', '$cookies', '$state'];
+	Sidebar.$inject = ['$scope', '$http', '$cookies', '$state', '$rootScope'];
 
 	/*
 	* @summary instantiates the Gefeature1 module
 	* Fetches the list of the most starred repos from the database using
 	* the REST API url /most_starred_repos
 	*/
-	function Sidebar($scope, $http, $cookies, $state) {
+	function Sidebar($scope, $http, $cookies, $state, $rootScope) {
 		$scope.rooms = [];
 		$scope.$watch('logged', function() {
 			// Room list
@@ -37,6 +37,7 @@
 					}
 				}).then(
 					function(res) {
+						$rootScope.rooms = res.data.rooms;
 						$scope.rooms = res.data.rooms;
 					},
 					function(err) {
