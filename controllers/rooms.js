@@ -14,7 +14,7 @@ module.exports = function(app) {
 			User.findOne({
 				name: decoded.name
 			}, function(err, user) {
-				if (err)  console.log(err);
+				if (err)  {console.log(err);return;}
 
 				if (!user) {
 					return res.status(403).send({msg: 'Authentication failed. User not found.'});
@@ -33,7 +33,7 @@ module.exports = function(app) {
 								return res.status(409).json({msg: 'Room already exists.'});
 							}
 							user.save(function(err){
-								if (err)  console.log(err);
+								if (err)  {console.log(err);return;}
 								res.status(201).json({msg: 'Successfully created new room.', room: newRoom.id});
 							})
 						});
@@ -53,7 +53,7 @@ module.exports = function(app) {
 			User.findOne({
 				name: decoded.name
 			}, function(err, user) {
-				if (err)  console.log(err);
+				if (err)  {console.log(err);return;}
 				if (!user) {
 					return res.status(403).send({msg: 'Authentication failed. User not found.'});
 				} else {

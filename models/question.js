@@ -8,11 +8,15 @@ var QuestionSchema = new Schema({
     title: {
         type: String,
         unique: false,
-        required: true
+        required: true,
+		minlength: 1,
+		maxlength: 50
     },
     question: {
         type: String,
-        required: true
+        required: true,
+		minlength: 1,
+		maxlength: 400
     },
     plus: {
         type: Number,

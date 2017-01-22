@@ -8,23 +8,33 @@ var UserSchema = new Schema({
   	name: {
         type: String,
         unique: true,
-        required: true
+        required: true,
+		minlength: 1,
+		maxlength: 50
     },
   	password: {
         type: String,
-        required: true
+        required: true,
+		minlength: 1,
+		maxlength: 50
     },
 	firstname: {
 		type: String,
-		required: true
+		required: true,
+		minlength: 1,
+		maxlength: 50
 	},
 	lastname: {
 		type: String,
-		required: true
+		required: true,
+		minlength: 1,
+		maxlength: 100
 	},
 	email: {
 		type: String,
-		required: true
+		required: true,
+		minlength: 1,
+		maxlength: 100
 	},
   	rooms:[
         {type: Schema.Types.ObjectId, ref: 'Room'}

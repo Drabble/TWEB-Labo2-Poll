@@ -11,7 +11,7 @@ function RoomSocketIo(){
             socket.on('joinRoom', function(msg){
                 console.log("joinRoom " + msg.room);
 				Room.findOne({_id : msg.room}, function (err, room) {
-					if(err)  console.log(err);
+					if(err)  {console.log(err);return;}
 
 					if(!room){
 						console.log("Room not found");
@@ -28,7 +28,7 @@ function RoomSocketIo(){
 						socket.emit("success", room);
 						Question.find({room: msg.room}).populate("comments")
 							.exec(function (err, questions) {
-								if (err)  console.log(err);
+								if (err)  {console.log(err);return;}
 								socket.emit("listQuestions", questions)
 							});
 
@@ -43,7 +43,7 @@ function RoomSocketIo(){
 								});
 								// save the question
 								question.save(function (err) {
-									if (err) console.log(err);
+									if (err) {console.log(err);return;}
 									io.to(msg.room).emit("addQuestion", question);
 								});
 							}
@@ -56,12 +56,12 @@ function RoomSocketIo(){
 								});
 								// save the comment
 								Question.findOne({_id: msg.question}, function (err, question) {
-									if (err) console.log(err);
+									if (err) {console.log(err);return;}
 									comment.save(function (err) {
-										if (err) console.log(err);
+										if (err) {console.log(err);return;}
 										question.comments.push(comment);
 										question.save(function (err) {
-											if (err) console.log(err);
+											if (err) {console.log(err);return;}
 											console.log("add comment " + comment);
 											io.to(msg.room).emit("addComment", comment);
 										});
@@ -72,10 +72,10 @@ function RoomSocketIo(){
 						socket.on('addPlus', function(msg){
 							// save the comment
 							Question.findOne({_id: msg.question}, function(err, question){
-								if (err)  console.log(err);
+								if (err)  {console.log(err);return;}
 								question.plus = question.plus + 1;
 								question.save(function(err) {
-									if (err)  console.log(err);
+									if (err)  {console.log(err);return;}
 									io.to(msg.room).emit("addPlus", question);
 								});
 							});
@@ -83,10 +83,10 @@ function RoomSocketIo(){
 						socket.on('addMinus', function(msg){
 							// save the comment
 							Question.findOne({_id: msg.question}, function(err, question){
-								if (err)  console.log(err);
+								if (err)  {console.log(err);return;}
 								question.minus = question.minus + 1;
 								question.save(function(err) {
-									if (err)  console.log(err);
+									if (err)  {console.log(err);return;}
 									io.to(msg.room).emit("addMinus", question);
 								});
 							});

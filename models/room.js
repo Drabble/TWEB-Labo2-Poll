@@ -7,7 +7,10 @@ var RoomSchema = new Schema({
     name: {
         type: String,
         unique: false,
-        required: true
+        required: true,
+		minlength: 1,
+		maxlength: 50
+
     }
 },
 {

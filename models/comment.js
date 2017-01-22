@@ -6,7 +6,9 @@ var CommentSchema = new Schema({
     comment: {
         type: String,
         unique: false,
-        required: true
+        required: true,
+		minlength: 1,
+		maxlength: 200
     },
     date: {
         type: Date,

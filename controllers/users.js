@@ -20,7 +20,7 @@ module.exports = function(app) {
 			// save the user
 			newUser.save(function (err) {
 				if (err) {
-					console.log(err);
+					{console.log(err);return;}
 					return res.status(409).json({msg: 'Username already exists.'});
 				}
 				res.status(201).json({msg: 'Successful created new user.'});
@@ -33,7 +33,7 @@ module.exports = function(app) {
 		User.findOne({
 			name: req.body.name
 		}, function (err, user) {
-			if (err)  console.log(err);
+			if (err)  {console.log(err);return;}
 
 			if (!user) {
 				res.status(401).send({msg: 'Authentication failed. User not found.'});
@@ -61,7 +61,7 @@ module.exports = function(app) {
 			User.findOne({
 				name: decoded.name
 			}, function (err, user) {
-				if (err)  console.log(err);
+				if (err)  {console.log(err);return;}
 
 				if (!user) {
 					return res.status(403).send({msg: 'Authentication failed. User not found.'});
