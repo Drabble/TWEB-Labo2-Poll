@@ -1,6 +1,6 @@
 {
-  "name": "PollApp",
-  "description": "Poll app frontend",
+  "name": "Pollspeak",
+  "description": "Pollspeak app frontend",
   "version": "0.0.1",
   "install": {
     "path": {
