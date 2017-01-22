@@ -33,7 +33,7 @@ module.exports = function(app) {
 		User.findOne({
 			name: req.body.name
 		}, function (err, user) {
-			if (err) throw err;
+			if (err)  console.log(err);
 
 			if (!user) {
 				res.status(401).send({msg: 'Authentication failed. User not found.'});
@@ -61,7 +61,7 @@ module.exports = function(app) {
 			User.findOne({
 				name: decoded.name
 			}, function (err, user) {
-				if (err) throw err;
+				if (err)  console.log(err);
 
 				if (!user) {
 					return res.status(403).send({msg: 'Authentication failed. User not found.'});

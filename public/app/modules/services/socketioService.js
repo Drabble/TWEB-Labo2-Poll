@@ -34,6 +34,7 @@
         }
 
         function on(eventName, callback) {
+			$window.socket.removeAllListeners(eventName);
             $window.socket.on(eventName, function() {
                 var args = arguments;
                 $rootScope.$apply(function() {

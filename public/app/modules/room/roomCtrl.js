@@ -29,6 +29,14 @@
 		$scope.questions = [];
 		$scope.comments = {};
 		$scope.success = false;
+		$scope.orderByLike = function(question) {
+			return question.minus - question.plus;
+		};
+		$scope.showMore = function(question){
+			console.log("wtf");
+			question.quantity += 5;
+		}
+		socketio.init();
 		socketio.emit("joinRoom", {room: $scope.id});
 		socketio.on("success", function(room){
 			$scope.success = true;
@@ -41,6 +49,7 @@
 			console.log("new listQuestions");
 			console.log(questions);
 			for(var question in questions){
+				questions[question].quantity = 5;
 				questions[question].like = $cookies.get("like_" + questions[question]._id);
 			}
 			$scope.questions = questions;
@@ -48,6 +57,7 @@
 		socketio.on("addQuestion", function(question){
 			console.log("new addQuestion");
 			console.log(question);
+			question.quantity = 5;
 			$scope.questions.push(question);
 		});
 		socketio.on("addComment", function(comment){

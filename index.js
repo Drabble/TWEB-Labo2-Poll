@@ -10,10 +10,11 @@
  *
  */
 
-// TODO limiter le nombre de commentaire aux questions (a l'affichage)
 // Gérer le cas où on passe d'une room à une autre et qu'on crée une question
+// TODO HANDLE \r\n on questions
+// TODO Limit question size on frontend ?
+// TODO Add admin buttons
 
-// TODO Throw vs console.log
 // Mettre les fonctions dans les services ?
 // Utiliser des promises ?
 
