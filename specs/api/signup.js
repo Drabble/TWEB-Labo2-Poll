@@ -49,10 +49,13 @@ function itShouldRefuseToCreateAnAccountIfUsernameIsNotAvailable(){
 
     return signup.signup(user1)
         .then(function(response){
-            response.status.should.equal(201)
+            response.status.should.equal(201);
+        })
+        .then(function(){
             return signup.signup(user2);
         })
         .then(function(response){
+            console.log(response.status);
             response.status.should.equal(409);
-        })
+        });
 }

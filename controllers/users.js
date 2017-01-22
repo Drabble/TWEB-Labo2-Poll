@@ -20,7 +20,7 @@ module.exports = function(app) {
 			// save the user
 			newUser.save(function (err) {
 				if (err) {
-					{console.log(err);return;}
+					
 					return res.status(409).json({msg: 'Username already exists.'});
 				}
 				res.status(201).json({msg: 'Successful created new user.'});
