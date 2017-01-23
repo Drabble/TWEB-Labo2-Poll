@@ -40,10 +40,6 @@
 			}
 			return false;
 		};
-		$scope.removeQuestion = function(){
-			console.log($rootScope.rooms.indexOf($scope.id));
-			return $rootScope.rooms && $rootScope.rooms.indexOf($scope.id) >= 0;
-		};
 		socketio.init();
 		socketio.emit("joinRoom", {room: $scope.id});
 		socketio.on("success", function(room){
@@ -118,6 +114,28 @@
 				}
 			}
 		});
+		socketio.on("removeQuestion", function(question){
+			console.log("new removeQuestion");
+			console.log(question);
+			for(var i in $scope.questions){
+				if($scope.questions[i]._id === question._id){
+					$scope.questions.splice(i,i+1);
+					break;
+				}
+			}
+		});
+		socketio.on("removeComment", function(comment){
+			console.log("new removeComment");
+			console.log(comment);
+			for(var i in $scope.questions){
+				for(var j in $scope.questions[i].comments) {
+					if ($scope.questions[i].comments[j]._id === comment._id) {
+						$scope.questions[i].comments.splice(j, j + 1);
+						break;
+					}
+				}
+			}
+		});
 		$scope.questionSubmit = function(){
 			console.log("create question");
 			socketio.emit("addQuestion", {room: $scope.id, title: $scope.title, question: $scope.question});
@@ -156,6 +174,15 @@
 			for(var question in $scope.questions){
 				$scope.questions[question].like = $cookies.get("like_" + $scope.questions[question]._id);
 			}
+		};
+
+		$scope.removeQuestion = function(question){
+			console.log("Remove question");
+			socketio.emit("removeQuestion", {token: $cookies.get("token"), question: question._id, room: $scope.id});
+		};
+		$scope.removeComment = function(comment){
+			console.log("Remove comment");
+			socketio.emit("removeComment", {token: $cookies.get("token"), comment: comment._id, room: $scope.id});
 		};
 	}
 })();

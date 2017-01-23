@@ -3,6 +3,10 @@ function RoomSocketIo(){
     var Comment = require('../models/comment'); // get the mongoose model
     var Question = require('../models/question'); // get the mongoose model
     var Room = require('../models/room'); // get the mongoose model
+	var passportConfig = require('../config/passport'); // get auth utils file
+	var config = require('../config/database'); // get db config file
+	var jwt = require('jwt-simple');
+	var User = require('../models/user');
 
     function setup(io){
         socketio = io;
@@ -105,6 +109,82 @@ function RoomSocketIo(){
 									io.to(msg.room).emit("removeMinus", question);
 								});
 							});
+						});
+
+						socket.on('removeQuestion', function(msg){
+							console.log("Remove question");
+							var headers = new Object();
+							headers.authorization = msg.token;
+							var token = passportConfig.getToken(headers);
+							if (token) {
+								var decoded = jwt.decode(token, config.secret);
+								User.findOne({
+									name: decoded.name
+								}, function(err, user) {
+									if (err) {
+										console.log(err);
+										return;
+									}
+									if (user) {
+										// save the comment
+										Question.findOne({_id: msg.question}, function(err, question){
+											if (err) {
+												console.log(err);
+												return;
+											}
+											if(question){
+												io.to(msg.room).emit("removeQuestion", question);
+												Question.findOne({_id: msg.question}).remove().exec();
+											} else{
+												console.log("Question not found");
+											}
+										});
+
+									} else{
+										console.log("Remove question unauthorized");
+									}
+								});
+							} else{
+								console.log("Error in the token");
+							}
+						});
+
+						socket.on('removeComment', function(msg){
+							console.log("Remove comment");
+							var headers = new Object();
+							headers.authorization = msg.token;
+							var token = passportConfig.getToken(headers);
+							if (token) {
+								var decoded = jwt.decode(token, config.secret);
+								User.findOne({
+									name: decoded.name
+								}, function(err, user) {
+									if (err) {
+										console.log(err);
+										return;
+									}
+									if (user) {
+										// save the comment
+										Comment.findOne({_id: msg.comment}, function(err, comment){
+											if (err) {
+												console.log(err);
+												return;
+											}
+											if(comment){
+												io.to(msg.room).emit("removeComment", comment);
+												Comment.findOne({_id: msg.comment}).remove().exec();
+											} else{
+												console.log("Comment not found");
+											}
+										});
+
+									} else{
+										console.log("Remove comment unauthorized");
+									}
+								});
+							} else{
+								console.log("Error in the token");
+							}
 						});
 					}
 				});
