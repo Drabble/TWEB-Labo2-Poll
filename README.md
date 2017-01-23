@@ -58,7 +58,7 @@ grunt dev
 
 ## Poll web application
 
-The **master branch** of this repository contains the source code of the Interactive Polls web app. It is currently deployed on [Heroku](www.heroku.com) and you can already login, register, view your profile, create rooms, questions, comments, thumbs up and thumb down.
+The **master branch** of this repository contains the source code of the Interactive Polls web app. It is currently deployed on [Heroku](www.heroku.com) and all the features are implemented (login, register, view your profile, create rooms, questions, comments, thumbs up and thumb down).
 
 The structure of the front-end has been generated using the [AngularJS 1](https://angularjs.org) application generator [angm](https://github.com/newaeonweb/generator-angm) version 0.0.1. The application's navigation relies on the [UI-Router](https://github.com/angular-ui/ui-router) framework.
 
@@ -83,8 +83,6 @@ You can find most of the libraries/frameworks we used and their versions in the 
 Our home page is the landing page of our application. From there, users can register, login and navigate to the Poll creation. The left part of the page displays, once the user is logged in, the different Rooms that the user has joined as well as a **Create new room** button. 
 
 To join an existing room, the user can fill the **Join a room** text field, in the top left corner, with the name of the room and click on the appended button to join it. If no room name has been provided, a click on this button redirects the user to the Room creation section.
-
-The page displays the current number of users, questions and temporary or persistent rooms created as well as a chart showing the amount of rooms created each month. Here is what it looks like in our current preview version.
 
 ![Landing Page Preview](images/preview1.png)
 
