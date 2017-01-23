@@ -6,7 +6,7 @@
 	* @name app.controller:roomCtrl
 	* @description
 	* # roomCtrl
-	* Controller of the room Module 
+	* Controller of the room Module
 	* @author Antoine Drabble
 	* @author Guillaume Serneels
 	*
@@ -19,7 +19,7 @@
 	Room.$inject = ['$scope', '$stateParams', 'socketio', '$cookies', '$rootScope'];
 
 	/*
-	* @summary room interactions implemented with the Socket.IO real-time bidirectional 
+	* @summary room interactions implemented with the Socket.IO real-time bidirectional
 	event-based communication library
 	*/
 	function Room($scope, $stateParams, socketio, $cookies, $rootScope) {
@@ -35,7 +35,12 @@
 			question.quantity += 5;
 		};
 		$scope.userIsAdmin = function(){
-			return $rootScope.rooms && $rootScope.rooms.indexOf($scope.id) >= 0;
+			for(var room in $rootScope.rooms){
+				if($rootScope.rooms[room]._id == $scope.id){
+					return true;
+				}
+			}
+			return false;
 		};
 		$scope.removeQuestion = function(){
 			console.log($rootScope.rooms.indexOf($scope.id));
