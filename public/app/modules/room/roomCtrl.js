@@ -29,9 +29,6 @@
 		$scope.success = false;
 		$scope.colors = [ '#2ECC40', '#FF4136'];
 		$scope.labels = ["Like", "Dislike"];
-		$scope.orderByLike = function(question) {
-			return question.minus - question.plus;
-		};
 		$scope.showMore = function(question){
 			question.quantity += 5;
 		};

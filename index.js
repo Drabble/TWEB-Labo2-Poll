@@ -9,8 +9,6 @@
  *
  */
 
-// TODO HANDLE \r\n on questions
-// TODO Limit question size on frontend ? Afficher des erreurs
 // TODO Add admin buttons and implement
 // TODO show chart.js graph
 
