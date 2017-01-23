@@ -72,6 +72,17 @@ function RoomSocketIo(){
 								});
 							});
 						});
+						socket.on('removePlus', function(msg){
+							// save the comment
+							Question.findOne({_id: msg.question}, function(err, question){
+								if (err)  {console.log(err);return;}
+								question.plus = question.plus - 1;
+								question.save(function(err) {
+									if (err)  {console.log(err);return;}
+									io.to(msg.room).emit("removePlus", question);
+								});
+							});
+						});
 						socket.on('addMinus', function(msg){
 							// save the comment
 							Question.findOne({_id: msg.question}, function(err, question){
@@ -80,6 +91,18 @@ function RoomSocketIo(){
 								question.save(function(err) {
 									if (err)  {console.log(err);return;}
 									io.to(msg.room).emit("addMinus", question);
+								});
+							});
+						});
+
+						socket.on('removeMinus', function(msg){
+							// save the comment
+							Question.findOne({_id: msg.question}, function(err, question){
+								if (err)  {console.log(err);return;}
+								question.minus = question.minus - 1;
+								question.save(function(err) {
+									if (err)  {console.log(err);return;}
+									io.to(msg.room).emit("removeMinus", question);
 								});
 							});
 						});

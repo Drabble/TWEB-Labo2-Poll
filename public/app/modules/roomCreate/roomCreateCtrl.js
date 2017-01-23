@@ -36,7 +36,7 @@
 					function(res) {
 						console.log('room success !', res.data);
 						$rootScope.$broadcast('newRoom', res.data.room);
-						$state.go("room", {"id": res.data.room});
+						$state.go("room", {"id": res.data.room._id});
 					},
 					function(err) {
 						console.log('room create error...', err);

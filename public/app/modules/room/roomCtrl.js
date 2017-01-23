@@ -95,6 +95,26 @@
 				}
 			}
 		});
+		socketio.on("removePlus", function(question){
+			console.log("new removePlus");
+			console.log(question);
+			for(var i in $scope.questions){
+				if($scope.questions[i]._id === question._id){
+					$scope.questions[i].plus = question.plus;
+					break;
+				}
+			}
+		});
+		socketio.on("removeMinus", function(question){
+			console.log("new removeMinus");
+			console.log(question);
+			for(var i in $scope.questions){
+				if($scope.questions[i]._id === question._id){
+					$scope.questions[i].minus = question.minus;
+					break;
+				}
+			}
+		});
 		$scope.questionSubmit = function(){
 			console.log("create question");
 			socketio.emit("addQuestion", {room: $scope.id, title: $scope.title, question: $scope.question});
@@ -113,7 +133,7 @@
 			if(!$cookies.get("like_" + questionId)) {
 				socketio.emit("addPlus", {room: $scope.id, question: questionId});
 			} else if($cookies.get("like_" + questionId) === "minus"){
-				socketio.emit("addPlus", {room: $scope.id, question: questionId});
+				socketio.emit("removeMinus", {room: $scope.id, question: questionId});
 				socketio.emit("addPlus", {room: $scope.id, question: questionId});
 			}
 			$cookies.put("like_" + questionId, "plus");
@@ -126,7 +146,7 @@
 			if(!$cookies.get("like_" + questionId)) {
 				socketio.emit("addMinus", {room: $scope.id, question: questionId});
 			} else if($cookies.get("like_" + questionId) === "plus"){
-				socketio.emit("addMinus", {room: $scope.id, question: questionId});
+				socketio.emit("removePlus", {room: $scope.id, question: questionId});
 				socketio.emit("addMinus", {room: $scope.id, question: questionId});
 			}
 			$cookies.put("like_" + questionId, "minus");

@@ -1,27 +1,32 @@
-# TWEB Labo 2 : Interactive Poll application
+# TWEB Labo 2 : Pollspeak - Interactive Poll application
 
-This repository contains the progress of the second lab session for Antoine Drabble and Guillaume Serneels in the TWEB Course 2016-2017 at HEIG-VD. 
+This repository contains the result of the second lab session for Antoine Drabble and Guillaume Serneels in the TWEB Course 2016-2017 at HEIG-VD. 
 
-The project is aimed at developing and deploying an AngularJS 1 web application allowing users to participate in **interactives polls**. The application is currently under developement and the available version 1.0.0 consists of a preview.
+The project is aimed at developing and deploying an AngularJS 1 web application allowing users to participate in **interactives polls**.
 
-As they access the release version of the web app, users will be directed to a landing page from where they can login, register and join Rooms. Only logged users can create rooms.
+As they access our web app, users are directed to a landing page from where they can login, register and join Rooms. Only logged users can create rooms.
 Inside a Room, users can create questions and post comments. Thumb up and thumb down buttons provide the polling functionnality, allowing the user to upvote and downvote each question.
 
 
 ## Getting started
 
-A preview version of our application is currently deployed on Heroku at the following URL:
+Pollspeak is currently deployed on Heroku at the following URL:
 
 https://tweb-interactive-polls.herokuapp.com/
 
 To run this application preview locally, you must install the Node.js environment as well as the dependencies managers, npm and bower, according to the following version requirements:
 
 node version 6.5.0
+
 npm version 1.4.x
+
 bower version 1.7.9
 
-You must install [MongoDB](https://docs.mongodb.com/getting-started/shell/installation/) on your machine and set up an environement variable to point to your MongoDB instance.
-You also need to set an environment variable for the secret used for generating the JWT (Json Web Token). This can be done:
+You must install [MongoDB](https://docs.mongodb.com/getting-started/shell/installation/) on your machine according to the following version requirements:
+
+MongoDB version 3.4.0
+
+You also need to set up two environement variables, the first one to point to your MongoDB instance, the second one is required as the secret used for generating the JWT (Json Web Token). This can be done:
 
 For Mac/Linux users
 
@@ -119,7 +124,11 @@ As a logged in user, a click on the **Username** in the top right corner, displa
 
 ![Preview Account](images/preview_account.png)
 
+### Feature 6 : Help Page
 
+Inside the Main Navigation located on the left part of our display, right under the **Home** button, there is a **Help** button. Clicking on this button redirects the user to the Help page which is a guide explaining how every feature can be used through the visual interface.
+
+![Preview Help](images/preview1.png)
 
 
 ### html template
