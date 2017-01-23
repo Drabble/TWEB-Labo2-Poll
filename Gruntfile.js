@@ -162,8 +162,8 @@ module.exports = function (grunt) {
 						'public/app/**/*Ctrl.js',
 						'public/app/**/*Service.js',
 						'public/app/**/*Directive.js',
-						'public/app/lib/Chart.js',
-						'public/app/lib/angular-chart.js'
+						'public/src/bower_components//chart.js/dist/Chart.js',
+						'public/src/bower_components/angular-chart.js/dist/angular-chart.min.js'
 					]
 				}
 			},
@@ -178,8 +178,8 @@ module.exports = function (grunt) {
 						'public/app/**/*Ctrl.js',
 						'public/app/**/*Service.js',
 						'public/app/**/*Directive.js',
-						'public/app/lib/Chart.js',
-						'public/app/lib/angular-chart.js'
+						'public/src/bower_components//chart.js/dist/Chart.js',
+						'public/src/bower_components/angular-chart.js/dist/angular-chart.min.js'
 					]
 				}
 			}

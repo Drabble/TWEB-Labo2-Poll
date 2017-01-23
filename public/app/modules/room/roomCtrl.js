@@ -27,16 +27,17 @@
 		$scope.questions = [];
 		$scope.comments = {};
 		$scope.success = false;
+		$scope.colors = [ '#2ECC40', '#FF4136'];
+		$scope.labels = ["Like", "Dislike"];
 		$scope.orderByLike = function(question) {
 			return question.minus - question.plus;
 		};
 		$scope.showMore = function(question){
-			console.log("wtf");
 			question.quantity += 5;
 		};
 		$scope.userIsAdmin = function(){
 			for(var room in $rootScope.rooms){
-				if($rootScope.rooms[room]._id == $scope.id){
+				if($rootScope.rooms[room]._id === $scope.id){
 					return true;
 				}
 			}

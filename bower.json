@@ -22,7 +22,7 @@
     "angular-resource": "1.5.*",
     "angular-ui-router": "~0.2.10",
     "jquery-ui": "^1.12.1",
-    "chart.js": "^2.4.0"
+    "angular-chart.js": "^1.1.1"
   },
   "resolutions": {
     "angular": "1.5.*"

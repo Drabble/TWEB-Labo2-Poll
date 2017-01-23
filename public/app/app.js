@@ -4,7 +4,7 @@
 	/**
 	 * @ngdoc index
 	 * @name Pollspeak
-	 * @description 
+	 * @description
 	 *
 	 * Declares the modules of the Pollspeak app
 	 *
@@ -30,7 +30,8 @@
 		'profile',
 		'sidebar',
 		'header',
-		'help'
+		'help',
+		'chart.js'
 	]);
 
 })();
