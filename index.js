@@ -10,6 +10,16 @@
  */
 
 // TODO Add admin buttons and implement
+	// TODO virer le passport secret (variable d'environnement)
+	// TODO Relire readme
+	// Fin présentation
+	// Comment frontend
+
+	// Guillaume
+	// Comment backend
+	// Fin préparer la démo
+	// Fin slides bug connus et améliorations possible
+	// Fin readme
 
 // TODO Commenter
 // TODO Indenter
