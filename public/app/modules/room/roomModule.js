@@ -11,7 +11,7 @@
 	 * @author Guillaume Serneels
 	 */
 
-	angular.module('room', ['socketio'])
+	angular.module('room', ['socketio', 'chart.js'])
 		.run(setupSocketIO);
 
 	setupSocketIO.$inject = ['socketio', '$rootScope'];
