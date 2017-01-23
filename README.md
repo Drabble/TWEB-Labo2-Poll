@@ -1,4 +1,4 @@
-# TWEB Labo 2 : Interactive Poll application
+# TWEB Labo 2 : Pollspeak - Interactive Poll application
 
 This repository contains the result of the second lab session for Antoine Drabble and Guillaume Serneels in the TWEB Course 2016-2017 at HEIG-VD. 
 
@@ -10,7 +10,7 @@ Inside a Room, users can create questions and post comments. Thumb up and thumb 
 
 ## Getting started
 
-A preview version of our application is currently deployed on Heroku at the following URL:
+Pollspeak is currently deployed on Heroku at the following URL:
 
 https://tweb-interactive-polls.herokuapp.com/
 
