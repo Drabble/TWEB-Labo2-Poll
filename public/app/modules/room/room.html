@@ -89,7 +89,7 @@
 							<div ng-repeat="comment in question.comments | orderBy:date | limitTo: -question.quantity;"
 								 class="box-comment">
 								<span class="text-muted pull-right">{{comment.date | date:"dd/MM/yyyy 'at' h:mma"}}</span>
-								<i ng-show="userIsAdmin()" ng-click="removeQuestion(question)" style="color: red; float:right; margin-right: 10px;" class="fa fa-remove"></i> {{comment.comment}}
+								<i ng-show="userIsAdmin()" ng-click="removeQuestion(question)" style="color: red; float:right; margin-right: 10px; word-wrap: break-word;" class="fa fa-remove"></i> {{comment.comment}}
 								<!-- /.comment-text -->
 							</div>
 							<!-- /.box-comment -->
