@@ -34,7 +34,7 @@ module.exports = function(app) {
 							}
 							user.save(function(err){
 								if (err)  {console.log(err);return;}
-								res.status(201).json({msg: 'Successfully created new room.', room: newRoom.id});
+								res.status(201).json({msg: 'Successfully created new room.', room: newRoom});
 							})
 						});
 					}
