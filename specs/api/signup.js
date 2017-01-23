@@ -55,7 +55,6 @@ function itShouldRefuseToCreateAnAccountIfUsernameIsNotAvailable(){
             return signup.signup(user2);
         })
         .then(function(response){
-            console.log(response.status);
             response.status.should.equal(409);
         });
 }

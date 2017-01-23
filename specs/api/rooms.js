@@ -75,7 +75,6 @@ function itShouldNotAllowAUserWithAFakeJSONWebTokenToGetTheListOfAllRooms() {
 
     return rooms.getRooms(jsonWebToken)
         .then(function (response) {
-            console.log(response.body);
             response.status.should.equal(401);
             return response;
         });

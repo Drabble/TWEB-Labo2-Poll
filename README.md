@@ -80,9 +80,9 @@ You can find most of the libraries/frameworks we used and their versions in the 
 
 ## Landing page
 
-Our home page is the landing page of our application. From there, users can register, login and navigate to the Poll creation. The left part of the page displays, once the user is logged in, the different Rooms that the user has joined as well as a **Create new room** button. 
+As they access Pollspeak, users are welcomed by the landing page of our application. From there, they can register, login and navigate to the Poll creation. The left part of the page displays a **Home** button and a **Help** button to access the help page. Once the user is logged in, it also displays the different Rooms that the user has joined as well as a **Create new room** button. 
 
-To join an existing room, the user can fill the **Join a room** text field, in the top left corner, with the name of the room and click on the appended button to join it. If no room name has been provided, a click on this button redirects the user to the Room creation section.
+To join an existing room, the user can fill the **Join a room** text field, in the top left corner, with the id of the room and click on the appended button to join it. If no room name has been provided, a click on this button redirects the user to the Room creation section.
 
 ![Landing Page Preview](images/preview1.png)
 
@@ -99,7 +99,7 @@ Clicking on the **Register** and **Login** buttons, at the top right of the home
 
 ### Feature 2 : Room creation
 
-After clicking on the **Create new room** button, the Room creation page is displayed. It consits of a form allowing the user to fill in the room's name along with a **Temporary** check box to determine if the room should be temporary or persistent.
+After clicking on the **Create new room** button, the Room creation page is displayed. It consits of a form allowing the user to fill in the room's name.
 
 ![Preview Room Creation](images/preview_room_create.png)
 
@@ -129,7 +129,7 @@ Inside the Main Navigation located on the left part of our display, right under 
 ![Preview Help](images/preview1.png)
 
 
-### Automated testing
+## Automated testing
 
 The **/specs** folder at the root of our repository contains automated tests to validate the behaviour of our api and socket.io.
 
@@ -140,14 +140,15 @@ Here are the mocha and chai version requirements:
 	mocha version 3.1.2
 	chai version 3.5.0
 
-To run the tests, you must go to the root of our repository en fire with:
+
+To run the tests, you must go to the root of our repository and run:
 
 ```
 npm test
 ```
 
 
-### html template
+## html template
 
 The html template we're using is Alma Seed Studio from [adminlte](https://almsaeedstudio.com/) built on Bootstrap 3.
 
