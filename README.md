@@ -129,6 +129,24 @@ Inside the Main Navigation located on the left part of our display, right under 
 ![Preview Help](images/preview1.png)
 
 
+### Automated testing
+
+The **/specs** folder at the root of our repository contains automated tests to validate the behaviour of our api and socket.io.
+
+These test are built using the javascript test framework for node.js **mocha** and the assertion library **chai**.
+
+Here are the mocha and chai version requirements:
+
+	mocha version 3.1.2
+	chai version 3.5.0
+
+To run the tests, you must go to the root of our repository en fire with:
+
+```
+npm test
+```
+
+
 ### html template
 
 The html template we're using is Alma Seed Studio from [adminlte](https://almsaeedstudio.com/) built on Bootstrap 3.

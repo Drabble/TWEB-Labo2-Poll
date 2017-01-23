@@ -79,6 +79,8 @@
 									class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-down"></i> -1
 							</button>
 							<span class="pull-right text-muted">Likes: {{question.plus}} - Dislikes: {{question.minus}} -	Comments: {{question.comments.length}}</span>
+							<canvas id="pie" class="chart chart-pie" chart-data="getData(question)" chart-labels="labels" chart-options="options">
+							</canvas> 			
 						</div>
 						<!-- /.box-body -->
 						<div class="box-footer box-comments">
