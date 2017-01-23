@@ -16,7 +16,7 @@
 		var controller = null, $scope = null;
 
 		beforeEach(function () {
-			module('githubexplorer');
+			module('poll');
 		});
 
 		beforeEach(inject(function ($controller, $rootScope) {
