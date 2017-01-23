@@ -1,5 +1,5 @@
 /**
- * Entry point of the Pollspeak web app, it uses Express 4 to render the Angular 1 app 
+ * Entry point of the Pollspeak web app, it uses Express 4 to render the Angular 1 app
  *
  * @summary   Entry point of Pollspeak web app
  *
@@ -9,16 +9,10 @@
  *
  */
 
-// Gérer le cas où on passe d'une room à une autre et qu'on crée une question
 // TODO HANDLE \r\n on questions
-// TODO Limit question size on frontend ?
-// TODO Add admin buttons
-
-// Mettre les fonctions dans les services ?
-// Utiliser des promises ?
-
-// TODO Améliorer la landing page
-// TODO Spécifier MongoDB version et comment spécifier l'adresse de la db
+// TODO Limit question size on frontend ? Afficher des erreurs
+// TODO Add admin buttons and implement
+// TODO show chart.js graph
 
 // TODO Commenter
 // TODO Indenter
