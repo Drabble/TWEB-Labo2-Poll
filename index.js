@@ -10,7 +10,6 @@
  */
 
 // TODO Add admin buttons and implement
-// TODO show chart.js graph
 
 // TODO Commenter
 // TODO Indenter
