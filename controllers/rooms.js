@@ -52,7 +52,7 @@ module.exports = function(app) {
 			var decoded = jwt.decode(token, config.secret);
 			User.findOne({
 				name: decoded.name
-			}, function(err, user) {
+			}).populate("rooms").exec(function(err, user) {
 				if (err)  {console.log("Error : " +err);return;}
 				if (!user) {
 					return res.status(401).send({msg: 'Authentication failed. User not found.'});

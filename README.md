@@ -24,7 +24,7 @@ You must install [MongoDB](https://docs.mongodb.com/getting-started/shell/instal
 
 MongoDB version 3.4.0
 
-You also need to set up two environement variables, the first one to point to your MongoDB instance, the second one is used as the secret used for generating the JWT (Json Web Token). This can be done:
+You also need to set up two environement variables, the first one to point to your MongoDB instance, the second one is required as the secret used for generating the JWT (Json Web Token). This can be done:
 
 For Mac/Linux users
 
@@ -122,7 +122,11 @@ As a logged in user, a click on the **Username** in the top right corner, displa
 
 ![Preview Account](images/preview_account.png)
 
+### Feature 6 : Help Page
 
+Inside the Main Navigation located on the left part of our display, right under the **Home** button, there is a **Help** button. Clicking on this button redirects the user to the Help page which is a guide explaining how every feature can be used through the visual interface.
+
+![Preview Help](images/preview1.png)
 
 
 ### html template

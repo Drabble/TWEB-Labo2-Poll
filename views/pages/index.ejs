@@ -135,7 +135,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li ng-repeat="(key, value) in rooms"><a ui-sref="room({id: '{{value}}'})"><i class="fa fa-circle-o"></i>{{value}}</a></li>
+            <li ng-repeat="(key, value) in rooms"><a ui-sref="room({id: '{{value._id}}'})"><i class="fa fa-circle-o"></i>{{value.name}}</a></li>
           </ul>
         </li>
         <li ng-show="logged"><a ui-sref="roomCreate"><i class="fa fa-plus text-red"></i> <span>Create new room</span></a></li>
