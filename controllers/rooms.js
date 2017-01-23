@@ -53,15 +53,15 @@ module.exports = function(app) {
 			User.findOne({
 				name: decoded.name
 			}, function(err, user) {
-				if (err)  {console.log(err);return;}
+				if (err)  {console.log("Error : " +err);return;}
 				if (!user) {
-					return res.status(403).send({msg: 'Authentication failed. User not found.'});
+					return res.status(401).send({msg: 'Authentication failed. User not found.'});
 				} else {
 					res.status(200).json({rooms: user.rooms});
 				}
 			});
 		} else {
-			return res.status(403).send({msg: 'No token provided.'});
+			return res.status(401).send({msg: 'No token provided.'});
 		}
 	});
 }

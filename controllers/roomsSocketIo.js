@@ -7,9 +7,8 @@ function RoomSocketIo(){
     function setup(io){
         socketio = io;
         socketio.on("connection", function(socket){
-			console.log("client connecté");
             socket.on('joinRoom', function(msg){
-                console.log("joinRoom " + msg.room);
+
 				Room.findOne({_id : msg.room}, function (err, room) {
 					if(err)  {console.log(err);return;}
 
@@ -17,13 +16,6 @@ function RoomSocketIo(){
 						console.log("Room not found");
 						socket.emit("notexist", room);
 					} else {
-						console.log("Room found " + room);
-						/*var rooms = io.sockets.adapter.rooms;
-						console.log(rooms);
-						for(r in rooms){
-							console.log(r);
-							socket.leave(r);
-						}*/
 						socket.join(msg.room);
 						socket.emit("success", room);
 						Question.find({room: msg.room}).populate("comments")

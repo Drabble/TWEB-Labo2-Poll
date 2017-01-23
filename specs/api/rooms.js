@@ -71,12 +71,12 @@ function itShouldNotAllowAUserWithAFakeJSONWebTokenToGetTheListOfAllRooms() {
     }
 
     //generate a fake token
-    jsonWebToken = "fakerthanfaketoken";
+    jsonWebToken = "Bearer fakerthanfaketoken";
 
     return rooms.getRooms(jsonWebToken)
         .then(function (response) {
-            console.log(response.body.msg);
-            response.status.should.equal(403);
+            console.log(response.body);
+            response.status.should.equal(401);
             return response;
         });
 
