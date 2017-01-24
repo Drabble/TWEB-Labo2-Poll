@@ -10,15 +10,8 @@
  */
 
 // TODO virer le passport secret (variable d'environnement)
-// TODO Relire readme
 // TODO Fin présentation
-
-// TODO Guillaume
-// TODO Comment backend
 // TODO Fin préparer la démo
-// TODO Fin slides bug connus et améliorations possible
-// TODO Fin readme
-
 // TODO Indenter
 
 var express     = require('express');
