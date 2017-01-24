@@ -9,11 +9,9 @@
  *
  */
 
-// TODO Add security on admin buttons
 // TODO virer le passport secret (variable d'environnement)
 // TODO Relire readme
 // TODO Fin présentation
-// TODO Comment frontend
 
 // TODO Guillaume
 // TODO Comment backend

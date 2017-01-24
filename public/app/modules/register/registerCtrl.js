@@ -22,9 +22,12 @@
 	* @summary registration feature for the PollSpeak app
 	*/
 	function Register($scope, $http, $cookies, $state) {
+		// Go to the profile page if logged in
 		if($cookies.get("token")){
 			$state.go('profile'); 
 		}
+
+		// Handle register form submission
 		$scope.submit = function() {
 			if ($scope.username && $scope.password) {
 				$http({

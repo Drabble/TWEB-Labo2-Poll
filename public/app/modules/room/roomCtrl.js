@@ -27,11 +27,17 @@
 		$scope.questions = [];
 		$scope.comments = {};
 		$scope.success = false;
+
+		// Settings for doughnut chart
 		$scope.colors = [ '#2ECC40', '#FF4136'];
 		$scope.labels = ["Like", "Dislike"];
+
+		// Show mroe comments button
 		$scope.showMore = function(question){
 			question.quantity += 5;
 		};
+
+		// Check if the user is admin of the room
 		$scope.userIsAdmin = function(){
 			for(var room in $rootScope.rooms){
 				if($rootScope.rooms[room]._id === $scope.id){
@@ -40,8 +46,11 @@
 			}
 			return false;
 		};
+
+		// Initialise socketio and join the room
 		socketio.init();
 		socketio.emit("joinRoom", {room: $scope.id});
+		// Handle join room success and fail in case it doesn't exist
 		socketio.on("success", function(room){
 			$scope.success = true;
 			$scope.room = room;
@@ -49,6 +58,8 @@
 		socketio.on("fail", function(){
 			$scope.success = false;
 		});
+
+		// Get the list of questions
 		socketio.on("listQuestions", function(questions){
 			console.log("new listQuestions");
 			console.log(questions);
@@ -58,12 +69,16 @@
 			}
 			$scope.questions = questions;
 		});
+
+		// Add a new question
 		socketio.on("addQuestion", function(question){
 			console.log("new addQuestion");
 			console.log(question);
 			question.quantity = 5;
 			$scope.questions.push(question);
 		});
+
+		// Add a new comment
 		socketio.on("addComment", function(comment){
 			console.log("new addComment");
 			console.log(comment);
@@ -74,6 +89,8 @@
 				}
 			}
 		});
+
+		// Handle like and dislikes
 		socketio.on("addPlus", function(question){
 			console.log("new addPlus");
 			console.log(question);
@@ -94,6 +111,8 @@
 				}
 			}
 		});
+
+		// Handle like and dislike removal
 		socketio.on("removePlus", function(question){
 			console.log("new removePlus");
 			console.log(question);
@@ -114,6 +133,8 @@
 				}
 			}
 		});
+
+		// Handle question and comment removal
 		socketio.on("removeQuestion", function(question){
 			console.log("new removeQuestion");
 			console.log(question);
@@ -138,18 +159,24 @@
 				}
 			}
 		});
+
+		// Handle question form submission
 		$scope.questionSubmit = function(){
 			console.log("create question");
 			socketio.emit("addQuestion", {room: $scope.id, title: $scope.title, question: $scope.question});
 			$scope.title = "";
 			$scope.question = "";
 		};
+
+		// Handle comment form submission
 		$scope.commentSubmit = function(questionId){
 			console.log("create comment");
 			console.log($scope.comments[questionId]);
 			socketio.emit("addComment", {room: $scope.id, question: questionId, comment: $scope.comments[questionId]});
 			$scope.comments[questionId] = "";
 		};
+
+		// Handle like and dislike button clicks
 		$scope.plusClick = function(questionId){
 			console.log(questionId);
 			console.log("plus");
@@ -178,6 +205,7 @@
 			}
 		};
 
+		// Handle question and comment removal click
 		$scope.removeQuestion = function(question){
 			console.log("Remove question");
 			socketio.emit("removeQuestion", {token: $cookies.get("token"), question: question._id, room: $scope.id});

@@ -22,9 +22,11 @@
 	* @summary instantiates the Sidebar and get current rooms
 	*/
 	function Sidebar($scope, $http, $cookies, $state, $rootScope) {
+		// The list of rooms
 		$scope.rooms = [];
+
+		// When user is logged in get the list of rooms
 		$scope.$watch('logged', function() {
-			// Room list
 			if($scope.logged){
 				$http({
 					method: 'GET',
@@ -46,6 +48,7 @@
 			}
 		});
 
+		// When a new room is created add it to the list of rooms
 		$scope.$on('newRoom', function (event, value) {
 			$scope.rooms.push(value);
 		});
@@ -56,6 +59,7 @@
 			$scope.logged = $cookies.get("token");
 		});
 
+		// Handle join room button
 		$scope.joinRoom = function() {
 			$state.go("room", {id: $scope.roomId});
 		};

@@ -22,9 +22,12 @@
 	* @summary login feature for the Pollspeak app
 	*/
 	function Login($scope, $http, $cookies, $state) {
+		// If the user is logged in, go to the profile page
 		if($cookies.get("token")){
 			$state.go('profile'); 
 		}
+
+		// Handle login form submission
 		$scope.submit = function() {
 			if ($scope.username && $scope.password) {
 				$http({

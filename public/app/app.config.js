@@ -7,7 +7,7 @@
 	 * @description
 	 * # Config and run block
 	 * Configutation of the of the Pollspeak app
-	 * 
+	 *
 	 * @author Antoine Drabble
 	 * @author Guillaume Serneels
 	 */
@@ -24,7 +24,7 @@
 
 		$locationProvider.hashPrefix('!');
 
-		// This is required for Browser Sync to work poperly
+		// This is required for Browser Sync to work properly
 		$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 

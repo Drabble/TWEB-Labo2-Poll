@@ -22,9 +22,12 @@
 	* @summary profile viewing feature for the Pollspeak app
 	*/
 	function Profile($scope, $http, $cookies, $state) {
+		// If user is not logged in, go to login page
 		if(!$cookies.get("token")){
 			$state.go('login');
 		}
+
+		// Get the account informations
 		$http({
 			method: 'GET',
 			url: '/api/account',

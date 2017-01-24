@@ -7,7 +7,7 @@
 	 * @description
 	 * # socketioService
 	 * Socketio Service of the Pollspeak app
-     * Inspired from 
+     * Inspired from
      * https://codepen.io/mi-lee/post/integrate-socket-with-angular
      * http://www.piecemeal.us/docs/socket.module.html
      * @author Antoine Drabble
@@ -22,6 +22,7 @@
 
 	socketFactory.$inject = ['$window', '$rootScope'];
 
+	// Custom socketio client
 	function socketFactory($window, $rootScope) {
         var socket;
         var services = {
@@ -32,10 +33,12 @@
 
         return services;
 
+        // Initialise socketio
         function init(){
             $window.socket = io();
         }
 
+        // Handle new events
         function on(eventName, callback) {
 			$window.socket.removeAllListeners(eventName);
             $window.socket.on(eventName, function() {
@@ -46,6 +49,7 @@
             });
         }
 
+        // Emit new events
         function emit(eventName, data, callback) {
             $window.socket.emit(eventName, data, function() {
                 var args = arguments;

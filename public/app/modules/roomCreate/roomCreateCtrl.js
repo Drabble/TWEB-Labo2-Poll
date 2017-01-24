@@ -22,7 +22,10 @@
 	* @summary room creation feature for the Pollspeak app
 	*/
 	function RoomCreate($scope, $http, $state, $cookies, $rootScope) {
+		// Get the token from cookies
 		$scope.token = $cookies.get("token");
+
+		// Handle room creation button
 		$scope.submit = function() {
 			if ($scope.name) {
 				$http({
