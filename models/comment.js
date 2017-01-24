@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-// set up a mongoose model
+// set up a mongoose model for Comment
 var CommentSchema = new Schema({
     comment: {
         type: String,

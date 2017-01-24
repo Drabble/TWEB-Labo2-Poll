@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 var Comment = require('./comment');
 
 
-// set up a mongoose model
+// set up a mongoose model for Questions
 var QuestionSchema = new Schema({
     title: {
         type: String,

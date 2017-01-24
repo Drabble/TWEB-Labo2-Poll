@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Question = require('./question');
 
-// set up a mongoose model
+// set up a mongoose model for Rooms
 var RoomSchema = new Schema({
     name: {
         type: String,
