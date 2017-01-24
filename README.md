@@ -118,15 +118,15 @@ The right part of the page shows every questions created in the Room so far.
 
 ### Feature 4 : Poll usage
 
-Inside a Room, each question is diplayed and users can comment, upvote or downvote each question using the appropriate buttons. As soon as the first Like/Dislike has been submitted, a pie chart appears under the question to show the proportion of Likes/Dislikes. 
+Inside a Room, each question is diplayed and users can comment, upvote or downvote each question using the appropriate buttons. As soon as the first Like/Dislike has been submitted, a pie chart appears under the question to show the proportion of Likes/Dislikes. If the number of submitted comment it greater than five, the extra comments are hidden and can be displayed using the **Show More** link.
 
-![Preview Question](images/poll_usage.png)
+![Preview Question](images/poll_usage.png =250x)
 
 ### Feature 5 : Poll administration
 
 When an user creates a room, he is the administrator of that room and is allowed to delete each question/comment by clicking on the red cross a the top left of it.
 
-![Preview Question](images/admin.png)
+![Preview Question](images/admin.png =250x)
 
 ### Feature 6 : User's profile page
 
