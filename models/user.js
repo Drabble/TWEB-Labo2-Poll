@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 var bcryptjs = require('bcryptjs');
 var Room = require('./room');
 
-// set up a mongoose for Users model
+// set up a mongoose model for Users 
 var UserSchema = new Schema({
   	name: {
         type: String,
