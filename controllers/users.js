@@ -4,7 +4,7 @@ var passport = require('passport');
 var config = require('../config/database'); // get db config file
 var passportConfig = require('../config/passport'); // get auth utils file
 /**
- * Expose /signup /authenticate and /account endpoints for user management 
+ * Expose /signup /authenticate and /account endpoints for user management
  */
 module.exports = function (app) {
 	// route to register a new user
@@ -32,7 +32,7 @@ module.exports = function (app) {
 		}
 	});
 
-	// route to authenticate as an user of the application 
+	// route to authenticate as an user of the application
 	app.post('/api/authenticate', function (req, res) {
 		User.findOne({
 			name: req.body.name
@@ -62,7 +62,7 @@ module.exports = function (app) {
 		var token = passportConfig.getToken(req.headers);
 		if (token) {
 			var decoded = jwt.decode(token, config.secret);
-			//Look for the user 
+			//Look for the user
 			User.findOne({
 				name: decoded.name
 			}, function (err, user) {
@@ -85,17 +85,4 @@ module.exports = function (app) {
 			return res.status(403).send({ msg: 'No token provided.' });
 		}
 	});
-
-	getToken = function (headers) {
-		if (headers && headers.authorization) {
-			var parted = headers.authorization.split(' ');
-			if (parted.length === 2) {
-				return parted[1];
-			} else {
-				return null;
-			}
-		} else {
-			return null;
-		}
-	};
 }
