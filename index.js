@@ -9,19 +9,18 @@
  *
  */
 
-// TODO Add admin buttons and implement
-	// TODO virer le passport secret (variable d'environnement)
-	// TODO Relire readme
-	// Fin présentation
-	// Comment frontend
+// TODO Add security on admin buttons
+// TODO virer le passport secret (variable d'environnement)
+// TODO Relire readme
+// TODO Fin présentation
+// TODO Comment frontend
 
-	// Guillaume
-	// Comment backend
-	// Fin préparer la démo
-	// Fin slides bug connus et améliorations possible
-	// Fin readme
+// TODO Guillaume
+// TODO Comment backend
+// TODO Fin préparer la démo
+// TODO Fin slides bug connus et améliorations possible
+// TODO Fin readme
 
-// TODO Commenter
 // TODO Indenter
 
 var express     = require('express');

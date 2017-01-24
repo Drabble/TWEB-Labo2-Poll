@@ -119,7 +119,7 @@
 			console.log(question);
 			for(var i in $scope.questions){
 				if($scope.questions[i]._id === question._id){
-					$scope.questions.splice(i,i+1);
+					$scope.questions.splice(i,1);
 					break;
 				}
 			}
@@ -130,8 +130,10 @@
 			for(var i in $scope.questions){
 				for(var j in $scope.questions[i].comments) {
 					if ($scope.questions[i].comments[j]._id === comment._id) {
-						$scope.questions[i].comments.splice(j, j + 1);
-						break;
+						console.log($scope.questions[i].comments);
+						$scope.questions[i].comments.splice(j, 1);
+						console.log($scope.questions[i].comments);
+						return;
 					}
 				}
 			}
