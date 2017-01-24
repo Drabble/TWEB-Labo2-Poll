@@ -124,7 +124,7 @@ Inside a Room, each question is diplayed and users can comment, upvote or downvo
 
 ### Feature 5 : Poll administration
 
-When an user creates a room, he is the administrator of that room and is allowed to delete each question/comment by clicking on the red cross a the top left of it.
+When an user creates a room, he is the administrator of that room and is allowed to delete each question/comment by clicking on the red cross a the top right corner of it.
 
 <img src="images/admin.png" width="500">
 
