@@ -80,53 +80,71 @@ You can find most of the libraries/frameworks we used and their versions in the 
 
 ## Landing page
 
-As they access Pollspeak, users are welcomed by the landing page of our application. From there, they can register, login and navigate to the Poll creation. The left part of the page displays a **Home** button and a **Help** button to access the help page. Once the user is logged in, it also displays the different Rooms that the user has joined as well as a **Create new room** button. 
+As they access Pollspeak, users are welcomed by the landing page of our application. From there, they don't need to register or login to join existing rooms and participate in poll creation and answering.
 
-To join an existing room, the user can fill the **Join a room** text field, in the top left corner, with the id of the room and click on the appended button to join it. If no room name has been provided, a click on this button redirects the user to the Room creation section.
+To join an existing room, the user can fill the **Join a room** text field, in the top left corner, with the id of the room and click on the appended button to join it. If no room name has been provided.
 
-![Landing Page Preview](images/preview1.png)
+![Landing Page Preview](images/landing_page.png)
+
+Users who want to create new rooms on the application need to create an account and login using the **Register** and **Login** buttons on the top right corner of the page.
+
+The left part of the page displays a **Home** button and a **Help** button to access the help page. Once the user is logged in, two more contrals are displayed, a **My rooms** button and a **Create new room** button. He can click on the My rooms button to display a drop-down list with the different Rooms that he has already joined, each room has to be clicked in order to be displayed in the central part of the page. A click on the **Create new room** button redirects the user to the Room creation page.
+
+![Landing Page Preview](images/landing_page_login.png)
 
 ## Features
 
 ### Feature 1 : Register and Login
 
-Clicking on the **Register** and **Login** buttons, at the top right of the home page, redirects user to a form where they can fill their credentials in order to, respectively, create an account or log into their account.
+Clicking on the **Register** and **Login** buttons, at the top right of the home page, redirects user to a form where they can fill their credentials in order to, respectively, create an account or log into their account. After a successfull, the user is redirected to his profile page.
 
-![Preview Register](images/preview_register.png)
+![Preview Register](images/register.png)
 
-![Preview Login](images/preview_login.png)
+![Preview Login](images/login.png)
 
 
 ### Feature 2 : Room creation
 
 After clicking on the **Create new room** button, the Room creation page is displayed. It consits of a form allowing the user to fill in the room's name.
 
-![Preview Room Creation](images/preview_room_create.png)
+![Preview Room Creation](images/room_create.png)
 
 ### Feature 3 : Poll creation
 
 Once the user has created a new Room or joined an existing Room, the Poll creation page is displayed. From there, the user has the opportunity of filling a form to ask a new question in the room.
 The right part of the page shows every questions created in the Room so far.
 
-![Preview Poll Creation](images/preview2.png)
+![Preview Poll Creation](images/poll_create.png)
 
 ### Feature 4 : Poll usage
 
-Inside a Room, each question is diplayed and users can comment, upvote or downvote each question using the appropriate buttons.
+Inside a Room, each question is diplayed and users can comment, upvote or downvote each question using the appropriate buttons. As soon as the first Like/Dislike has been submitted, a pie chart appears under the question to show the proportion of Likes/Dislikes. 
 
-![Preview Question](images/preview_question.png)
+![Preview Question](images/poll_usage.png)
 
-### Feature 5 : Account management
+### Feature 5 : Poll administration
 
-As a logged in user, a click on the **Username** in the top right corner, displays two option: a **Sign Out** button, to log out of the application, and a **Profile** button which displays the detailed informations about the user's account.
+When an user creates a room, he is the administrator of that room and is allowed to delete each question/comment by clicking on the red cross a the top left of it.
 
-![Preview Account](images/preview_account.png)
+![Preview Question](images/admin.png)
 
-### Feature 6 : Help Page
+### Feature 6 : User's profile page
+
+As a logged in user, a click on the **Username** in the top right corner, displays two option: a **Sign Out** button, to log out of the application, and a **Profile** button which displays the detailed informations about the user's profile.
+
+![Preview Account](images/profile.png)
+
+### Feature 7 : Help Page
 
 Inside the Main Navigation located on the left part of our display, right under the **Home** button, there is a **Help** button. Clicking on this button redirects the user to the Help page which is a guide explaining how every feature can be used through the visual interface.
 
-![Preview Help](images/preview1.png)
+![Preview Help](images/help.png)
+
+### Feature 8 : Layout Customisation
+
+By Clicking on the wheels on the top left corner it is possible to access the Layout customisation features of our application.
+
+![Preview Help](images/custom.png)
 
 
 ## Automated testing
