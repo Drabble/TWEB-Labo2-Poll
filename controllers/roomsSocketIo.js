@@ -1,5 +1,5 @@
 /**
- * Socket.io room management service 
+ * Socket.io room management service
  */
 function RoomSocketIo() {
 	var socketio;

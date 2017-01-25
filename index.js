@@ -9,11 +9,6 @@
  *
  */
 
-// TODO virer le passport secret (variable d'environnement)
-// TODO Fin présentation
-// TODO Fin préparer la démo
-// TODO Indenter
-
 var express     = require('express');
 var app         = express();
 var request     = require('request-promise');
@@ -45,7 +40,7 @@ require('./config/passport')(passport);
 
 // The root url of the website serves the Angular app
 app.get('/', function (request, response) {
-  response.render('pages/index');
+	response.render('pages/index');
 });
 
 // Require the socketio room service
@@ -57,5 +52,5 @@ require('./controllers/users')(app);
 
 // Start the Express app
 server.listen(app.get('port'), function () {
-  console.log('Node app is running on port', app.get('port'));
+	console.log('Node app is running on port', app.get('port'));
 });

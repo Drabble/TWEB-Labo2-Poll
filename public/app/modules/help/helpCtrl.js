@@ -2,15 +2,15 @@
 	'use strict';
 
 	/**
-	* @ngdoc function
-	* @name app.controller:helpCtrl
-	* @description
-	* # helpCtrl
-	* Controller Help Module 
-	* @author Antoine Drabble
-	* @author Guillaume Serneels
-	*
-	*/
+	 * @ngdoc function
+	 * @name app.controller:helpCtrl
+	 * @description
+	 * # helpCtrl
+	 * Controller Help Module
+	 * @author Antoine Drabble
+	 * @author Guillaume Serneels
+	 *
+	 */
 
 	angular
 		.module('help')
@@ -19,8 +19,8 @@
 	Help.$inject = ['$scope', '$http'];
 
 	/*
-	* @summary 
-	*/
+	 * @summary
+	 */
 	function Help($scope, $http) {
 
 	}

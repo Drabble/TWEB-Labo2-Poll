@@ -2,15 +2,15 @@
 	'use strict';
 
 	/**
-	* @ngdoc function
-	* @name app.controller:registerCtrl
-	* @description
-	* # registerCtrl
-	* Controller of the Register Module
-	* @author Antoine Drabble
-	* @author Guillaume Serneels
-	*
-	*/
+	 * @ngdoc function
+	 * @name app.controller:registerCtrl
+	 * @description
+	 * # registerCtrl
+	 * Controller of the Register Module
+	 * @author Antoine Drabble
+	 * @author Guillaume Serneels
+	 *
+	 */
 
 	angular
 		.module('register')
@@ -19,12 +19,12 @@
 	Register.$inject = ['$scope', '$http', '$cookies', '$state'];
 
 	/*
-	* @summary registration feature for the PollSpeak app
-	*/
+	 * @summary registration feature for the PollSpeak app
+	 */
 	function Register($scope, $http, $cookies, $state) {
 		// Go to the profile page if logged in
 		if($cookies.get("token")){
-			$state.go('profile'); 
+			$state.go('profile');
 		}
 
 		// Handle register form submission
@@ -32,7 +32,7 @@
 			if ($scope.username && $scope.password) {
 				$http({
 					method: 'POST',
-					url: '/api/signup', 
+					url: '/api/signup',
 					data: {
 						name: $scope.username,
 						password: $scope.password,

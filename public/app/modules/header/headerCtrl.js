@@ -2,15 +2,15 @@
 	'use strict';
 
 	/**
-	* @ngdoc function
-	* @name app.controller:headerCtrl
-	* @description
-	* # headerCtrl
-	* Controller of the Header Module
-	* @author Antoine Drabble
-	* @author Guillaume Serneels
-	*
-	*/
+	 * @ngdoc function
+	 * @name app.controller:headerCtrl
+	 * @description
+	 * # headerCtrl
+	 * Controller of the Header Module
+	 * @author Antoine Drabble
+	 * @author Guillaume Serneels
+	 *
+	 */
 
 	angular
 		.module('header')
@@ -19,8 +19,8 @@
 	Header.$inject = ['$scope', '$http', '$cookies', '$state'];
 
 	/*
-	* @summary instantiates the Header and get account informations
-	*/
+	 * @summary instantiates the Header and get account informations
+	 */
 	function Header($scope, $http, $cookies, $state) {
 		// If the user is logged in get the account information to display its firstname and lastname
 		$scope.logged = $cookies.get("token");

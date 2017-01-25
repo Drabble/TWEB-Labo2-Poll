@@ -2,15 +2,15 @@
 	'use strict';
 
 	/**
-	* @ngdoc function
-	* @name app.controller:roomCtrl
-	* @description
-	* # roomCtrl
-	* Controller of the room Module
-	* @author Antoine Drabble
-	* @author Guillaume Serneels
-	*
-	*/
+	 * @ngdoc function
+	 * @name app.controller:roomCtrl
+	 * @description
+	 * # roomCtrl
+	 * Controller of the room Module
+	 * @author Antoine Drabble
+	 * @author Guillaume Serneels
+	 *
+	 */
 
 	angular
 		.module('room')
@@ -19,9 +19,9 @@
 	Room.$inject = ['$scope', '$stateParams', 'socketio', '$cookies', '$rootScope'];
 
 	/*
-	* @summary room interactions implemented with the Socket.IO real-time bidirectional
-	event-based communication library
-	*/
+	 * @summary room interactions implemented with the Socket.IO real-time bidirectional
+	 event-based communication library
+	 */
 	function Room($scope, $stateParams, socketio, $cookies, $rootScope) {
 		$scope.id = $stateParams.id;
 		$scope.questions = [];

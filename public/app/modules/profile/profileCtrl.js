@@ -2,15 +2,15 @@
 	'use strict';
 
 	/**
-	* @ngdoc function
-	* @name app.controller:profileCtrl
-	* @description
-	* # profileCtrl
-	* Controller of the Profile Module
-	* @author Antoine Drabble
-	* @author Guillaume Serneels
-	*
-	*/
+	 * @ngdoc function
+	 * @name app.controller:profileCtrl
+	 * @description
+	 * # profileCtrl
+	 * Controller of the Profile Module
+	 * @author Antoine Drabble
+	 * @author Guillaume Serneels
+	 *
+	 */
 
 	angular
 		.module('profile')
@@ -19,8 +19,8 @@
 	Profile.$inject = ['$scope', '$http', '$cookies', '$state'];
 
 	/*
-	* @summary profile viewing feature for the Pollspeak app
-	*/
+	 * @summary profile viewing feature for the Pollspeak app
+	 */
 	function Profile($scope, $http, $cookies, $state) {
 		// If user is not logged in, go to login page
 		if(!$cookies.get("token")){
@@ -32,8 +32,8 @@
 			method: 'GET',
 			url: '/api/account',
 			headers: { 'Content-Type': 'application/json',
-					   'Authorization': $cookies.get("token")
-					 }
+				'Authorization': $cookies.get("token")
+			}
 		}).then(
 			function(res) {
 				$scope.username = res.data.username;

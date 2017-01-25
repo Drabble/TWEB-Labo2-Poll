@@ -2,15 +2,15 @@
 	'use strict';
 
 	/**
-	* @ngdoc function
-	* @name app.controller:sidebarCtrl
-	* @description
-	* # sidebarCtrl
-	* Controller of the sidebar of the Pollspeak app
-	* @author Antoine Drabble
-	* @author Guillaume Serneels
-	*
-	*/
+	 * @ngdoc function
+	 * @name app.controller:sidebarCtrl
+	 * @description
+	 * # sidebarCtrl
+	 * Controller of the sidebar of the Pollspeak app
+	 * @author Antoine Drabble
+	 * @author Guillaume Serneels
+	 *
+	 */
 
 	angular
 		.module('sidebar')
@@ -19,8 +19,8 @@
 	Sidebar.$inject = ['$scope', '$http', '$cookies', '$state', '$rootScope'];
 
 	/*
-	* @summary instantiates the Sidebar and get current rooms
-	*/
+	 * @summary instantiates the Sidebar and get current rooms
+	 */
 	function Sidebar($scope, $http, $cookies, $state, $rootScope) {
 		// The list of rooms
 		$scope.rooms = [];
@@ -32,7 +32,7 @@
 					method: 'GET',
 					url: '/api/rooms',
 					headers: { 'Content-Type': 'application/json',
-							'Authorization': $scope.logged
+						'Authorization': $scope.logged
 					}
 				}).then(
 					function(res) {

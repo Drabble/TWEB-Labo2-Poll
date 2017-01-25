@@ -2,15 +2,15 @@
 	'use strict';
 
 	/**
-	* @ngdoc function
-	* @name app.controller:roomCreateCtrl
-	* @description
-	* # roomCreateCtrl
-	* Controller of the roomCreate Module 
-	* @author Antoine Drabble
-	* @author Guillaume Serneels
-	*
-	*/
+	 * @ngdoc function
+	 * @name app.controller:roomCreateCtrl
+	 * @description
+	 * # roomCreateCtrl
+	 * Controller of the roomCreate Module
+	 * @author Antoine Drabble
+	 * @author Guillaume Serneels
+	 *
+	 */
 
 	angular
 		.module('roomCreate')
@@ -19,8 +19,8 @@
 	RoomCreate.$inject = ['$scope', '$http', '$state', '$cookies', '$rootScope'];
 
 	/*
-	* @summary room creation feature for the Pollspeak app
-	*/
+	 * @summary room creation feature for the Pollspeak app
+	 */
 	function RoomCreate($scope, $http, $state, $cookies, $rootScope) {
 		// Get the token from cookies
 		$scope.token = $cookies.get("token");
@@ -30,10 +30,10 @@
 			if ($scope.name) {
 				$http({
 					method: 'POST',
-					url: '/api/rooms', 
+					url: '/api/rooms',
 					data: { name: $scope.name },
 					headers: { 'Content-Type': 'application/json',
-						       'Authorization': $scope.token  
+						'Authorization': $scope.token
 					}
 				}).then(
 					function(res) {
